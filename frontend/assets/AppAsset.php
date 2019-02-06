@@ -44,9 +44,16 @@ class AppAsset extends AssetBundle
 	    'js/owl.carousel.min.js',
 	    'js/scrolling-nav.js',
 	    'js/sticky-header.js',
+	    'js/showUl.js',
 
     ];
-    public $depends = [
+//	public function init()
+//	{
+//		if (\Yii::$app->controller->action->id === 'telephone' || 'notebooke') {
+//			$this->js[] = 'js/showUl.js';
+//		}
+//	}
+	public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
     ];

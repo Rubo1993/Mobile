@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Brands;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
@@ -73,9 +74,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-    	$prod = Products::find()->asArray()->all();
-        return $this->render('index',[
-        	'pr' => $prod
+    	$allProduct = Products::find()->limit(8)->asArray()->all();
+	    $allBrands = Brands::find()->asArray()->all();
+	    $bestProducts = Products::find()->where(['best'=>'1'])->limit(8)->asArray()->all();
+
+	    return $this->render('index',[
+        	'allProduct' => $allProduct,
+		    'allBrands'=>$allBrands,
+		    'bestProducts'=>$bestProducts,
         ]);
     }
 
@@ -219,14 +225,6 @@ class SiteController extends Controller
 public function actionHome(){
     	return $this->render("index");
 }
-	public function actionBuffers(){
-		return $this->render("buffers");
-	}
-	public function actionTelephone(){
-		return $this->render("telephone");
-	}
-	public function actionAccessories(){
-		return $this->render("accessories");
-	}
+
 
 }

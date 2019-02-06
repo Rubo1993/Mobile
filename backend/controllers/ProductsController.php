@@ -8,6 +8,7 @@ use common\models\ProductsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -65,15 +66,25 @@ class ProductsController extends Controller
     public function actionCreate()
     {
         $model = new Products();
-
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        	$imgFile=UploadedFile::getInstance($model,'image');
+        	if (!empty($imgFile)){
+				$filePath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
+		        $imgaName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
+		        $path=$filePath.$imgaName;
+		        if ($imgFile->saveAs($path)){
+		        	$model->image = $imgaName;
+		        	$model->save(['image']);
+		        }
+	        }
             return $this->redirect(['view', 'id' => $model->id]);
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
     }
+
+
 
     /**
      * Updates an existing Products model.
@@ -94,6 +105,13 @@ class ProductsController extends Controller
             'model' => $model,
         ]);
     }
+
+
+
+
+
+
+
 
     /**
      * Deletes an existing Products model.

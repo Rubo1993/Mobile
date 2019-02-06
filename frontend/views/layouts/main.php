@@ -70,10 +70,10 @@ AppAsset::register($this);
 	                        <?php
 	                        $menuItems = [
 		                        ['label' => 'ԳԼԽԱՎՈՐ', 'url' => ['/']],
-		                        ['label' => 'ՀԵՌԱԽՈՍՆԵՐ', 'url' => ['telephone']],
-		                        ['label' => 'ԱԿՍԵՍՈՒԱՐՆԵՐ', 'url' => ['accessories']],
-		                        ['label' => 'ԲՈւՖԵՐՆԵՐ', 'url' => ['buffers']],
-//		                        ['label' => 'ԱԿՑԻԱՆԵՐ', 'url' => ['actions']],
+		                        ['label' => 'ՀԵՌԱԽՈՍՆԵՐ', 'url' => ['product?cat=6']],
+		                        ['label' => 'ԱԿՍԵՍՈՒԱՐՆԵՐ', 'url' => ['product/']],
+		                        ['label' => 'ԲՈւՖԵՐՆԵՐ', 'url' => ['product/index']],
+		                        ['label' => 'ՆՈՈՒԹԲՈՒՔԵՐ', 'url' => ['product/index']],
 		                        ['label' => 'ԿԱՊ', 'url' => ['contact']],
 	                        ];
 	                        echo Nav::widget([
