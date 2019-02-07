@@ -38,7 +38,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'brand_id')->textInput() ?>
 
-    <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'best')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
 

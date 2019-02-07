@@ -1,5 +1,3 @@
-
-<h2>Notebooke</h2>
 <div class="page-header">
 	<div class="container">
 		<div class="row">
@@ -25,26 +23,20 @@
 					<ul>
 						<li class='has-sub'><a href='#'>CATEGORY</a>
 							<ul>
-								<?php
-								if (!empty($notCategory)){
-									foreach ($notCategory as $notCat){
-										?>
-										<li class="categoryList"><a href='#' ><?= $notCat['title']?></a></li>
-										<?php
-									}
-								}
-								?>
+                                <li class="categoryList"><a href='#' ><?= $category['title']?></a></li>
+
 							</ul>
 						</li>
 						<li class='has-sub'><a href='#'>Brand</a>
 							<ul>
 								<?php
-								if (!empty($notBrand)){
-									foreach ($notBrand as $notBr){
-										?>
-										<li class="categoryList"><a href='#' ><?= $notBr['title']?></a></li>
-										<?php
-									}
+								if (!empty($brand)){
+								    foreach ($brand as $br){
+									?>
+										<li class="categoryList"><a href='#' ><?= $br['title']?></a></li>
+
+                                <?php
+								    }
 								}
 								?>
 							</ul>
@@ -59,16 +51,16 @@
 				<div class="row">
 					<!-- product -->
 					<?php
-					if (!empty($notProduct)) {
-						foreach ($notProduct as $not) {
+					if (!empty($products)) {
+						foreach ($products as $product) {
 							?>
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb30">
 								<div class="product-block">
 									<div class="product-img"><img src="./images/product_img_1.png" alt=""></div>
 									<div class="product-content">
-										<h5><a href="#" class="product-title"><?= $not['title']?></a></h5>
-										<div class="product-meta"><a href="#" class="product-price"><?= $not['sale_prise']?></a>
-											<a href="#" class="discounted-price"><?= $not['price']?></a>
+										<h5><a href="#" class="product-title"><?= $product['title']?></a></h5>
+										<div class="product-meta"><a href="#" class="product-price"><?= $product['sale_prise']?></a>
+											<a href="#" class="discounted-price"><?= $product['price']?></a>
 											<span class="offer-price">20%off</span>
 										</div>
 										<div class="shopping-btn">

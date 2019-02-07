@@ -70,10 +70,10 @@ AppAsset::register($this);
 	                        <?php
 	                        $menuItems = [
 		                        ['label' => 'ԳԼԽԱՎՈՐ', 'url' => ['/']],
-		                        ['label' => 'ՀԵՌԱԽՈՍՆԵՐ', 'url' => ['product?cat=6']],
-		                        ['label' => 'ԱԿՍԵՍՈՒԱՐՆԵՐ', 'url' => ['product/']],
-		                        ['label' => 'ԲՈւՖԵՐՆԵՐ', 'url' => ['product/index']],
-		                        ['label' => 'ՆՈՈՒԹԲՈՒՔԵՐ', 'url' => ['product/index']],
+		                        ['label' => 'ՀԵՌԱԽՈՍՆԵՐ', 'url' => ['product/telephone']],
+		                        ['label' => 'ԱԿՍԵՍՈՒԱՐՆԵՐ', 'url' => ['product/accessories']],
+		                        ['label' => 'ԲՈւՖԵՐՆԵՐ', 'url' => ['product/buffers']],
+		                        ['label' => 'ՆՈՈՒԹԲՈՒՔԵՐ', 'url' => ['product/notebooke']],
 		                        ['label' => 'ԿԱՊ', 'url' => ['contact']],
 	                        ];
 	                        echo Nav::widget([
@@ -81,80 +81,15 @@ AppAsset::register($this);
 		                        'items' => $menuItems,
 	                        ]);
 	                        ?>
-<!--                            <ul>-->
-<!--                                <li class="active"><a href="index.html">ԳԼԽԱՎՈՐ</a></li>-->
-<!--                                <li class="has-sub"><a href="#">ՀԵՌԱԽՈՍՆԵՐ</a>-->
-<!--                                    <ul>-->
-<!--                                        <li><a href="product-list.html">Mobile List</a></li>-->
-<!--                                        <li><a href="product-single.html">Mobile Single </a></li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-<!--                                <li><a href="about.html">Նոութբուքեր </a>-->
-<!--                                </li>-->
-<!--                                <li class="has-sub"><a href="#">ԲՈւՖԵՐՆԵՐ</a>-->
-<!--                                    <ul>-->
-<!--                                        <li><a href="checkout.html">Checkout Form</a></li>-->
-<!--                                        <li><a href="cart.html">Cart</a> </li>-->
-<!--                                        <li><a href="login-form.html">Login</a> </li>-->
-<!--                                        <li><a href="signup-form.html">Signup</a> </li>-->
-<!--                                        <li><a href="404-page.html">404-page</a> </li>-->
-<!--                                        <li><a href="styleguide.html">styleguide</a> </li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-<!--                                <li class="has-sub"><a href="#">ԱԿՍԵՍՈՒԱՐՆԵՐ</a>-->
-<!--                                    <ul>-->
-<!--                                        <li><a href="blog-default.html">Blog Default</a></li>-->
-<!--                                        <li><a href="blog-single.html">Blog Single</a></li>-->
-<!--                                    </ul>-->
-<!--                                </li>-->
-<!--                                <li><a href="contact-us.html">ԿԱՊ</a>-->
-<!--                                </li>-->
-<!---->
-<!--                            </ul>-->
+
                         </div>
                     </div>
                     <!-- /.navigations-->
                 </div>
             </div>
+
         </div>
     </div>
-
-    <!--    --><?php
-//    NavBar::begin([
-//        'brandLabel' => Yii::$app->name,
-//        'brandUrl' => Yii::$app->homeUrl,
-//        'options' => [
-//            'class' => 'navbar-inverse navbar-fixed-top',
-//        ],
-//    ]);
-//    $menuItems = [
-//        ['label' => 'Home', 'url' => ['/site/index']],
-//        ['label' => 'About', 'url' => ['/site/about']],
-//        ['label' => 'Contact', 'url' => ['/site/contact']],
-//    ];
-//    if (Yii::$app->user->isGuest) {
-//        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-//        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-//    } else {
-//        $menuItems[] = '<li>'
-//            . Html::beginForm(['/site/logout'], 'post')
-//            . Html::submitButton(
-//                'Logout (' . Yii::$app->user->identity->username . ')',
-//                ['class' => 'btn btn-link logout']
-//            )
-//            . Html::endForm()
-//            . '</li>';
-//    }
-//    echo Nav::widget([
-//        'options' => ['class' => 'navbar-nav navbar-right'],
-//        'items' => $menuItems,
-//    ]);
-//    NavBar::end();
-//    ?>
-
-
-
-
 	<?= Breadcrumbs::widget([
 		'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
 	]) ?>
@@ -164,6 +99,7 @@ AppAsset::register($this);
 <div class="bg-default pdt40 pdb40">
     <div class="container">
         <div class="row">
+
             <!-- features -->
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                 <div class="feature-left">

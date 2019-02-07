@@ -171,11 +171,6 @@ if ($prodKey==1){
 
     <?php
 }
-
-
-
-
-
             }
         }
         ?>
@@ -185,7 +180,7 @@ if ($prodKey==1){
 <!--                <div class="showcase-block">-->
 <!--                    <div class="display-logo ">-->
 <!--                        <a href="#"><img src="./images/htc.png" alt=""></a>-->
-<!--                    </div>-->
+<!--                     </div>-->
 <!--                    <div class="showcase-img">-->
 <!--                        <a href="#"><img src="./images/display_img_4.png" alt=""></a>-->
 <!--                    </div>-->

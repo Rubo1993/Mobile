@@ -2,6 +2,7 @@
 namespace frontend\controllers;
 
 use common\models\Brands;
+use common\models\Categories;
 use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
@@ -82,6 +83,7 @@ class SiteController extends Controller
         	'allProduct' => $allProduct,
 		    'allBrands'=>$allBrands,
 		    'bestProducts'=>$bestProducts,
+
         ]);
     }
 
