@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'title',
-            'description:ntext',
+//            'description:ntext',
             'price',
             'sale_prise',
             //'sku',
@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'is_feature',
             //'cat_id',
             //'brand_id',
-            //'slug',
+            'slug',
             //'best',
 
             ['class' => 'yii\grid\ActionColumn'],

@@ -33,8 +33,6 @@ class AppAsset extends AssetBundle
 	    'js/jquery.desoslide.js',
 	    'js/jquery.desoslide.min.js',
 	    'js/jquery.easing.min.js',
-	    'js/jquery.js',
-	    'js/jquery.min.js',
 	    'js/jquery.rateyo.min.js',
 	    'js/jquery.sticky.js',
 	    'js/jquery-ui.js',
@@ -53,6 +51,7 @@ class AppAsset extends AssetBundle
 //			$this->js[] = 'js/showUl.js';
 //		}
 //	}
+//toDo
 	public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',

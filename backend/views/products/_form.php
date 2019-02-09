@@ -34,13 +34,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'is_feature')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'cat_id')->textInput() ?>
+	<?= $form->field($model, 'cat_id')->dropDownList($categories,['prompt' => 'Please select category']); ?>
 
-    <?= $form->field($model, 'brand_id')->textInput() ?>
+	<?= $form->field($model, 'brand_id')->dropDownList($brands,['prompt' => 'Please select brand']); ?>
 
 <!--    --><?//= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'best')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
+	<?= $form->field($model, 'reyting')->dropDownList([ '0', '1','3','4','5' ], ['prompt' => '']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

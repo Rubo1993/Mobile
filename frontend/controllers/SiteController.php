@@ -1,10 +1,10 @@
 <?php
 namespace frontend\controllers;
-
 use common\models\Brands;
 use common\models\Categories;
 use Yii;
 use yii\base\InvalidArgumentException;
+use yii\data\ActiveDataProvider;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -15,7 +15,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Products;
-
+use  yii\data\Pagination;
 /**
  * Site controller
  */
@@ -73,20 +73,39 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionIndex()
-    {
-    	$allProduct = Products::find()->limit(8)->asArray()->all();
-	    $allBrands = Brands::find()->asArray()->all();
-	    $bestProducts = Products::find()->where(['best'=>'1'])->limit(8)->asArray()->all();
+//    public function actionIndex()
+//    {
+//    	$allProduct = Products::find()->limit(8)->asArray()->all();
+//	    $allBrands = Brands::find()->asArray()->all();
+//	    $bestProducts = Products::find()->where(['best'=>'1'])->limit(8)->asArray()->all();
+//
+//	    return $this->render('index',[
+//        	'allProduct' => $allProduct,
+//		    'allBrands'=>$allBrands,
+//		    'bestProducts'=>$bestProducts,
+//
+//        ]);
+//    }
+	public function actionIndex()
+	{
+		$allProduct = Products::find()->orderBy(['title'=>4]);
+		$allBrands = Brands::find()->asArray()->all();
+		$bestProducts = Products::find()->where(['best'=>'1'])->limit(8)->asArray()->all();
+		$pagination= new Pagination(['totalCount'=>$allProduct->count(),'pageSize'=>7]);
+		$dataProvider= new ActiveDataProvider([
+			'query'=>$allProduct,
+		]);
 
-	    return $this->render('index',[
-        	'allProduct' => $allProduct,
-		    'allBrands'=>$allBrands,
-		    'bestProducts'=>$bestProducts,
+		$allProduct = $allProduct->offset($pagination->offset)->limit($pagination->limit)->asArray()->all();
 
-        ]);
-    }
-
+		return $this->render('index',[
+			'allBrands'=>$allBrands,
+			'bestProducts'=>$bestProducts,
+			'allProduct' => $allProduct,
+			'pagination'=>$pagination,
+			'dataProvider'=>$dataProvider,
+		]);
+	}
     /**
      * Logs in a user.
      *

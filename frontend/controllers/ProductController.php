@@ -20,11 +20,9 @@ class ProductController extends controller {
 		if(!empty($category)){
 			$id = $category->id;
 			$products = Products::find()->where(['cat_id' => $id])->asArray()->all();
-//			$brId=$products->id;
 			$brand = Brands::find()->where(['cat_id' => $id])->asArray()->all();
 
-//		$products = Products::find()->where( [ 'cat_id' => 'id' ] )->asArray()->all();
-//		$brands = brands::find()->where( [ 'slug' => $slug ] )->asArray()->all();
+
 			return $this->render( 'index', [
 				'category' => $category,
 				'products'=>$products,
@@ -37,5 +35,11 @@ class ProductController extends controller {
 			echo "no product";
 		}
 
+	}
+		public function actionSingle($slug = ''){
+		$products = Products::findOne(['slug' => $slug]);
+		return $this->render('single',[
+			'products'=>$products,
+		]);
 	}
 }

@@ -42,7 +42,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-	            'product/<slug>' => 'product/index',
+	            'product/single/<slug>' => 'product/single',
 	            'product/<slug>/<name>' => 'product/index',
 
             ],

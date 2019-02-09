@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\Brands;
 use Yii;
 use common\models\Products;
 use common\models\ProductsSearch;
@@ -9,6 +10,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use common\models\Categories;
+use yii\helpers\ArrayHelper;
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -38,10 +41,10 @@ class ProductsController extends Controller
     {
         $searchModel = new ProductsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+
         ]);
     }
 
@@ -66,6 +69,15 @@ class ProductsController extends Controller
     public function actionCreate()
     {
         $model = new Products();
+
+	    $categories = Categories::find()->asArray()->all();
+	    $categories = ArrayHelper::map($categories,'id','title');
+
+	    $brands = Brands::find()->asArray()->all();
+	    $brands = ArrayHelper::map($brands,'id','title');
+
+
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
         	$imgFile=UploadedFile::getInstance($model,'image');
         	if (!empty($imgFile)){
@@ -77,10 +89,16 @@ class ProductsController extends Controller
 		        	$model->save(['image']);
 		        }
 	        }
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
-        return $this->render('create', [
+	    $allbrands= Brands::find()->asArray()->all();
+
+	    return $this->render('create', [
             'model' => $model,
+		    'allbrands'=>$allbrands,
+            'categories' => $categories,
+            'brands' => $brands
         ]);
     }
 
