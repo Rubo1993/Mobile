@@ -738,6 +738,20 @@ h5 { font-size: 14px; color: #1c1e1e; text-transform: uppercase; line-height: 1;
 
     flex-wrap: wrap;
 }
+.allproductPage{
+
+
+    text-align: center;
+
+    margin:auto;
+}
+.allproductPage>a{
+    border: 2px solid #6E6E6E;
+    color: white;
+    background: #A4A4A4;
+    border-radius: 20px;
+    padding:10px 20px;
+}
 .flex_bestProducts{
     display: flex;
     flex-wrap: wrap;

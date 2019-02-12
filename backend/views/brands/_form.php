@@ -16,11 +16,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'image')->textInput(['maxlength' => true]) ?>
+	<?= $form->field($model, 'image')->fileInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'cat_id')->textInput() ?>
+	<?= $form->field($model, 'cat_id')->dropDownList($categories,['prompt' => 'Please select Categories']); ?>
 
-    <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

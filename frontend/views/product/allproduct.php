@@ -23,30 +23,29 @@
 					<ul>
 						<li class='has-sub'><a href='#'>CATEGORY</a>
 							<ul>
-								<?php
-								if (!empty($category)){
-									foreach ($category as $cat){
-										?>
-                                        <li class="categoryList"><a href='<?=\yii\helpers\Url::to(['/']) . 'product/index/'.$cat['slug'] ?> ' ><?= $cat['title']?></a></li>
+                                <?php
 
-										<?php
-									}
-								}
-								?>
+                                foreach ($allcategories as $allcat){
+                                    ?>
+                                    <li class="categoryList"><a href='<?=\yii\helpers\Url::to(['/']) . 'product/allproduct/'.$allcat['slug']?>' ><?= $allcat['title']?></a></li>
+                                <?php
+                                }
+
+                                ?>
+
+
 							</ul>
 						</li>
 						<li class='has-sub'><a href='#'>Brand</a>
 							<ul>
 								<?php
-								if (!empty($brand)){
-								    foreach ($brand as $br){
+								if (!empty($allbrand)){
+									foreach ($allbrand as $br){
+										?>
+										<li class="categoryList"><a href='#' ><?= $br['title']?></a></li>
 
-									?>
-
-										<li class="categoryList"><a href='<?=\yii\helpers\Url::to(['/']) . 'product/'.$cat['slug'].'/'.$br['slug'] ?>' ><?= $br['title']?></a></li>
-
-                                <?php
-								    }
+										<?php
+									}
 								}
 								?>
 							</ul>
@@ -61,16 +60,19 @@
 				<div class="row">
 					<!-- product -->
 					<?php
-					if (!empty($products)) {
-						foreach ($products as $product) {
+                    if (!empty($filterProduct)){
+	                    $allproducts=$filterProduct;
+                    }
+					if (!empty($allproducts)) {
+						foreach ($allproducts as $products) {
 							?>
 							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb30">
 								<div class="product-block">
-									<div class="product-img"><img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>" alt=""></div>
+									<div class="product-img"><img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $products['image'] ?>" alt=""></div>
 									<div class="product-content">
-										<h5><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug'] ?>" class="product-title"><?= $product['title']?></a></h5>
-										<div class="product-meta"><a href="#" class="product-price"><?= $product['sale_prise']?></a>
-											<a href="#" class="discounted-price"><?= $product['price']?></a>
+										<h5><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$products['slug'] ?>" class="product-title"><?= $products['title']?></a></h5>
+										<div class="product-meta"><a href="#" class="product-price"><?= $products['sale_prise']?></a>
+											<a href="#" class="discounted-price"><?= $products['price']?></a>
 											<span class="offer-price">20%off</span>
 										</div>
 										<div class="shopping-btn">

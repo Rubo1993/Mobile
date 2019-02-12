@@ -76,9 +76,7 @@ class ProductsController extends Controller
 	    $brands = Brands::find()->asArray()->all();
 	    $brands = ArrayHelper::map($brands,'id','title');
 
-
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+	    if ($model->load(Yii::$app->request->post()) && $model->save()) {
         	$imgFile=UploadedFile::getInstance($model,'image');
         	if (!empty($imgFile)){
 				$filePath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';

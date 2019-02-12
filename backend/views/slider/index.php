@@ -2,23 +2,22 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\BrandsSearch */
+/* @var $searchModel common\models\SilderSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Brands';
+$this->title = 'Sliders';
 $this->params['breadcrumbs'][] = $this->title;
-
-
 ?>
-<div class="brands-index">
+<div class="slider-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Brands', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Slider', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -28,14 +27,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'title',
-            'description:ntext',
+            'description',
             'image',
-            'cat_id',
-            //'slug',
-// $form->field($model, 'cat_id')->dropDownList($categories,['prompt' => 'Please select brand']),
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    <?php Pjax::end(); ?>
 </div>

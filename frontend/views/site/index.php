@@ -125,6 +125,9 @@ if ($prodKey==1){
         }
         ?>
         </div>
+        <div class="allproductPage">
+            <a href="<?=\yii\helpers\Url::to(['/']) . 'product/allproduct'?>">ԲՈԼՈՐ ԱՊՐԱՆՔՆԵՐԸ</a>
+        </div>
         <div class="paginationDIv">
 		    <?php
 		    echo \yii\widgets\LinkPager::widget(

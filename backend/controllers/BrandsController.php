@@ -8,6 +8,10 @@ use common\models\BrandsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use common\models\Categories;
+use yii\helpers\ArrayHelper;
+
 
 /**
  * BrandsController implements the CRUD actions for Brands model.
@@ -37,10 +41,13 @@ class BrandsController extends Controller
     {
         $searchModel = new BrandsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+	    $categoriesIndex = Categories::find()->asArray()->all();
+	    $categoriesIndex = ArrayHelper::map($categoriesIndex,'id','title');
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+	        'categoriesIndex'=>$categoriesIndex,
         ]);
     }
 
@@ -57,6 +64,12 @@ class BrandsController extends Controller
         ]);
     }
 
+
+
+
+
+
+
     /**
      * Creates a new Brands model.
      * If creation is successful, the browser will be redirected to the 'view' page.
@@ -65,6 +78,25 @@ class BrandsController extends Controller
     public function actionCreate()
     {
         $model = new Brands();
+	    $categories = Categories::find()->asArray()->all();
+	    $categories = ArrayHelper::map($categories,'id','title');
+
+	    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+		    $imgFile=UploadedFile::getInstance($model,'image');
+		    if (!empty($imgFile)){
+			    $filePath = Yii::getAlias('@frontend') . '/web/images/uploads/brands/';
+			    $imgaName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
+			    $path=$filePath.$imgaName;
+			    if ($imgFile->saveAs($path)){
+				    $model->image = $imgaName;
+				    $model->save(['image']);
+			    }
+		    }
+
+		    return $this->redirect(['view', 'id' => $model->id]);
+	    }
+
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +104,11 @@ class BrandsController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+	        'categories'=>$categories,
         ]);
+
+
+
     }
 
     /**
