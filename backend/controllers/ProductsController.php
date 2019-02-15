@@ -99,9 +99,6 @@ class ProductsController extends Controller
             'brands' => $brands
         ]);
     }
-
-
-
     /**
      * Updates an existing Products model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -111,14 +108,20 @@ class ProductsController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+	    $categories = Categories::find()->asArray()->all();
+	    $categories = ArrayHelper::map($categories,'id','title');
+	    $brands = Brands::find()->asArray()->all();
+	    $brands = ArrayHelper::map($brands,'id','title');
+	    $model = $this->findModel($id);
+	    if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'categories'=>$categories,
+	        'brands'=>$brands,
         ]);
     }
 

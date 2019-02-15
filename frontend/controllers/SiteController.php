@@ -16,6 +16,8 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use common\models\Products;
 use  yii\data\Pagination;
+use common\models\Slider;
+
 /**
  * Site controller
  */
@@ -92,6 +94,9 @@ class SiteController extends Controller
 		$allBrands = Brands::find()->asArray()->all();
 		$bestProducts = Products::find()->where(['best'=>'1'])->limit(8)->asArray()->all();
 		$pagination= new Pagination(['totalCount'=>$allProduct->count(),'pageSize'=>7]);
+
+		$slider=Slider::find()->asArray()->all();
+
 		$dataProvider= new ActiveDataProvider([
 			'query'=>$allProduct,
 		]);
@@ -104,6 +109,7 @@ class SiteController extends Controller
 			'allProduct' => $allProduct,
 			'pagination'=>$pagination,
 			'dataProvider'=>$dataProvider,
+			'slider'=>$slider,
 		]);
 	}
     /**

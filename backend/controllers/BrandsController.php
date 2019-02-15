@@ -121,6 +121,8 @@ class BrandsController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+	    $categories = Categories::find()->asArray()->all();
+	    $categories = ArrayHelper::map($categories,'id','title');
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -128,6 +130,7 @@ class BrandsController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+	        'categories' => $categories
         ]);
     }
 

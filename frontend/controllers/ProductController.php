@@ -10,53 +10,47 @@ namespace frontend\controllers;
 
 use common\models\Brands;
 use common\models\Categories;
+use common\models\Slider;
 use yii\web\controller;
 use common\models\Products;
 use yii\web\NotFoundHttpException;
 
 class ProductController extends controller {
 
-	public function actionIndex( $slug = '',$brand = "" ) {
+	public function actionIndex( $slug = '', $brand = "" ) {
 		$category = Categories::find()->asArray()->all();
-		$products = Products::find()->asArray()->all();
-		$brand    = Brands::find()->asArray()->all();
 
-		if ( !empty( $slug ) ) {
-			$cat    = Categories::findOne( [ 'slug' => $slug ] );
-			$brands = Brands::findOne( [ 'slug' => $brand ] );
+		$products = Products::find();
+
+		if ( $slug && $slug != 'index' ) {
+			$cat = Categories::findOne( [ 'slug' => $slug ] );
+
 			if ( ! empty( $cat ) ) {
-				$id       = $cat->id;
-				$products = Products::find()->where( [ 'cat_id' => $id ] )->asArray()->all();
-				$brand    = Brands::find()->where( [ 'cat_id' => $id ] )->asArray()->all();
-
-				return $this->render( 'index', [
-					'category' => $category,
-					'products' => $products,
-					'brand'    => $brand,
-
-				] );
+				$products    = $products->where( [ 'cat_id' => $cat->id ] );
+				$brand_model = Brands::find()->where( [ 'cat_id' => $cat->id ] )->all();
 			}
 		}
-		if ( ! empty( $cat ) ) {
-			$id       = $cat->id;
-			$products = Products::find()->where( [ 'cat_id' => $id ] )->asArray()->all();
-			$brand    = Brands::find()->where( [ 'cat_id' => $id ] )->asArray()->all();
 
-			return $this->render( 'index', [
-				'category' => $category,
-				'products' => $products,
-				'brand'    => $brand,
-
-			] );
-
-			return $this->render( 'index', [
-				'category' => $category,
-				'brand'    => $brand,
-				'products' => $products,
-
-			] );
-
+		if ( ! isset( $brand_model ) ) {
+			$brand_model = Brands::find()->asArray()->all();
 		}
+
+		if ( $brand ) {
+			$current_brand = Brands::findOne( [ 'slug' => $brand ] );
+			if ( $current_brand ) {
+				$products = Products::find()->andWhere( [ 'brand_id' => $current_brand->id ] );
+			}
+		}
+
+		$products = $products->asArray()->all();
+
+		return $this->render( 'index', [
+			'category' => $category,
+			'brand'    => $brand_model,
+			'products' => $products,
+			'slug'     => $slug ? $slug : 'index',
+
+		] );
 	}
 
 	public function actionSingle( $slug = '' ) {
@@ -66,26 +60,6 @@ class ProductController extends controller {
 			'products' => $products,
 		] );
 	}
-
-//	public function actionAllproduct( $slug = '' ) {
-//		$allcategories    = Categories::find()->asArray()->all();
-//		$allproducts      = Products::find()->asArray()->all();
-//		$allbrand         = Brands::find()->asArray()->all();
-//		$filterCategories = Categories::findOne( [ 'slug' => $slug ] );
-//		if ( ! $filterCategories ) {
-//			throw new NotFoundHttpException();
-//		}
-//		$catId         = $filterCategories->id;
-//		$filterProduct = Products::find()->where( [ 'cat_id' => $catId ] )->asArray()->all();
-//
-//
-//		return $this->render( 'allproduct', [
-//			'allcategories' => $allcategories,
-//			'allproducts'   => $allproducts,
-//			'allbrand'      => $allbrand,
-//			'filterProduct' => $filterProduct,
-//		] );
-//	}
 
 
 }
