@@ -38,7 +38,7 @@ class ProductController extends controller {
 		if ( $brand ) {
 			$current_brand = Brands::findOne( [ 'slug' => $brand ] );
 			if ( $current_brand ) {
-				$products = Products::find()->andWhere( [ 'brand_id' => $current_brand->id ] );
+				$products = $products->andWhere( [ 'brand_id' => $current_brand->id ] );
 			}
 		}
 

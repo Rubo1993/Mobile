@@ -7,6 +7,9 @@ $params = array_merge(
 );
 
 return [
+	'aliases'=>[
+		'@image' => '/frontend/web/images/uploads/'
+	],
 	'id'                  => 'app-backend',
 	'basePath'            => dirname( __DIR__ ),
 	'controllerNamespace' => 'backend\controllers',

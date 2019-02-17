@@ -339,7 +339,14 @@ a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 /*--------------------------------
  4.8 Image Hover Effect 
 ----------------------------------*/
-img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border: none; line-height: normal; vertical-align: middle; }
+/*prob*/
+/*width: auto; max-width: 100%; height: auto;*/
+.best_product_img{
+    width: 60%;
+    height: 100%;
+    /*object-fit: cover;*/
+}
+img {  margin: 0; padding: 0; border: none; line-height: normal; vertical-align: middle; width: auto; max-width: 100%; height: auto;}
 .imghover { display: block; position: relative; max-width: 100%; }
 .imghover::before, .imghover::after { display: block; position: absolute; content: ""; text-align: center; opacity: 0; }
 .imghover::before { top: 0; right: 0; bottom: 0; left: 0; }
@@ -547,7 +554,14 @@ img { width: auto; max-width: 100%; height: auto; margin: 0; padding: 0; border:
 .showcase-block:hover { background-color: #fff; -webkit-box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.75); -moz-box-shadow:0 4px 14px 0 rgba(0, 0, 0, 0.10); box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.10); }
 .showcase-block.active { background-color: #fff; -webkit-box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.75); -moz-box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.10); box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.10); }
 .product-block { border: 1px solid #f3f5f7;margin: 10px 0; text-align: center; background-color: #fff; min-height: 349px; }
-.product-img { padding: 30px; margin-bottom: 10px; min-height: 180px; }
+
+/*prob*/
+.product-img { padding: 30px; margin-bottom: 10px; height: 350px; }
+.brand_image{padding: 30px; margin-bottom: 10px; height: 250px; }
+product-img img{
+    width: 200px;
+    height:150px;
+}
 .product-content { border-top: 1px solid #f3f5f7; padding: 30px; }
 .product-title { color: #848687; font-size: 15px; }
 .product-content h5 { margin-bottom: 5px; }

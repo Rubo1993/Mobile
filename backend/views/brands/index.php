@@ -30,7 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'description:ntext',
-            'image',
+	        [
+		        'attribute' => 'image',
+		        'format' => 'raw',
+		        'filter'=> '',
+		        'value' => function($model){
+			        return Html::img(\yii\helpers\Url::to('@image/brandsgi/'.$model->image),['width' => '70px','height' => '100px','class'=>'img']);
+		        }
+	        ] ,
             'cat_id',
             //'slug',
 // $form->field($model, 'cat_id')->dropDownList($categories,['prompt' => 'Please select brand']),

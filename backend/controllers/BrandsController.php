@@ -123,10 +123,27 @@ class BrandsController extends Controller
         $model = $this->findModel($id);
 	    $categories = Categories::find()->asArray()->all();
 	    $categories = ArrayHelper::map($categories,'id','title');
+$old_brand_img=$model->image;
+	    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+		    $imgFile=UploadedFile::getInstance($model,'image');
+		    if (!empty($imgFile)){
+			    $filePath = Yii::getAlias('@frontend') . '/web/images/uploads/brands/';
+			    $imgaName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
+			    $path=$filePath.$imgaName;
+			    if ($imgFile->saveAs($path)){
+			    	if (file_exists($old_brand_img)){
+			    		unset($old_brand_img);
+				    }else{
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+
+				    $model->image = $imgaName;
+				    $model->save(['image']);
+				    }
+			    }
+		    }
+
+		    return $this->redirect(['view', 'id' => $model->id]);
+	    }
 
         return $this->render('update', [
             'model' => $model,

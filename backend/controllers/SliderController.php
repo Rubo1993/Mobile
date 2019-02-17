@@ -98,10 +98,27 @@ class SliderController extends Controller {
 	 */
 	public function actionUpdate( $id ) {
 		$model = $this->findModel( $id );
-
+$old_slider_img=$model->image;
 		if ( $model->load( Yii::$app->request->post() ) && $model->save() ) {
+			$imgFile = UploadedFile::getInstance( $model, 'image' );
+			if ( ! empty( $imgFile ) ) {
+				$filePath = Yii::getAlias( '@frontend' ) . '/web/images/uploads/slider/';
+				$imgaName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
+				$path     = $filePath . $imgaName;
+				if ( $imgFile->saveAs( $path ) ) {
+					if (file_exists($old_slider_img)){
+						unset($old_slider_img);
+					}else{
+						$model->image = $imgaName;
+						$model->save( [ 'image' ] );
+					}
+
+				}
+			}
+
 			return $this->redirect( [ 'view', 'id' => $model->id ] );
 		}
+
 
 		return $this->render( 'update', [
 			'model' => $model,

@@ -5,28 +5,28 @@
                 <!-- product-description -->
                 <div class="box-body">
                     <div class="row">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <ul id="demo1_thumbs" class="slideshow_thumbs">
-                                <li>
-                                    <a href="./images/thumb_big_1.jpg">
-
-                                        <div class=" thumb-img"><img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $products['image'] ?>" alt=""></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./images/thumb_big_2.jpg">
-                                        <div class=" thumb-img"><img src="./images/thumb_2.jpg" alt="1img"></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="./images/thumb_big_3.jpg" alt="">
-                                        <div class=" thumb-img"><img src="./images/thumb_3.jpg" alt="2img"></div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+<!--                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">-->
+<!--                            <ul id="demo1_thumbs" class="slideshow_thumbs">-->
+<!--                                <li>-->
+<!--                                    <a href="./images/thumb_big_1.jpg">-->
+<!---->
+<!--                                        <div class=" thumb-img"><img src="--><?//=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $products['image'] ?><!--" alt=""></div>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="./images/thumb_big_2.jpg">-->
+<!--                                        <div class=" thumb-img"><img src="./images/thumb_2.jpg" alt="1img"></div>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <a href="./images/thumb_big_3.jpg" alt="">-->
+<!--                                        <div class=" thumb-img"><img src="./images/thumb_3.jpg" alt="2img"></div>-->
+<!--                                    </a>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div id="slideshow"></div>
+                            <div id="slideshow"><img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $products['image'] ?>" alt=""></div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="product-single">

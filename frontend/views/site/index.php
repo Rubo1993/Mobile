@@ -161,7 +161,7 @@ if ($prodKey==1){
 	                        <div class="item">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="product-block">
-                                    <div class="product-img"><img src="./images/product_img_5.png" alt=""></div>
+                                    <div class="brand_image"><img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/brands/'.$brands['image']?>" alt=""></div>
                                     <div class="product-content">
                                         <h5><a href="#" class="product-title"><?= $brands['title']?></a></h5>
 
@@ -240,9 +240,9 @@ if ($prodKey==1){
                                ?>
                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 productMyclass">
                                    <div class="product-block">
-                                       <div class="product-img"><img src="./images/product_img_3.png" alt=""></div>
+                                       <div class="product-img"><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$bests['slug']?>"><img class="best_product_img" src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $bests['image'] ?>" alt=""></a></div>
                                        <div class="product-content">
-                                           <h5><a href="#" class="product-title"><?=$bests['title']?></a></h5>
+                                           <h5><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$bests['slug']?>" class="product-title"><?=$bests['title']?></a></h5>
                                            <div class="product-meta"><a href="#" class="product-price"><?=$bests['sale_prise']?></a>
                                                <a href="#" class="discounted-price"><?=$bests['price']?></a>
 

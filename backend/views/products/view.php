@@ -45,6 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'brand_id',
             'slug',
             'best',
+            'reyting',
         ],
     ]) ?>
 

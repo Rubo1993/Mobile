@@ -12,6 +12,8 @@ use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use common\models\Categories;
 use yii\helpers\ArrayHelper;
+use yii\data\ActiveDataProvider;
+
 
 /**
  * ProductsController implements the CRUD actions for Products model.
@@ -114,6 +116,32 @@ class ProductsController extends Controller
 	    $brands = Brands::find()->asArray()->all();
 	    $brands = ArrayHelper::map($brands,'id','title');
 	    $model = $this->findModel($id);
+	    $old_image = $model->image;
+
+	    if ($model->load(Yii::$app->request->post()) && $model->save()) {
+		    $imgFile=UploadedFile::getInstance($model,'image');
+		    if (!empty($imgFile)){
+			    $filePath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
+			    $imgaName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
+			    $path=$filePath.$imgaName;
+			    if ($imgFile->saveAs($path)){
+			    	if (file_exists($old_image)){
+			    		unset($old_image);
+				    }else{
+					    $model->image = $imgaName;
+				    $model->save(['image']);
+				    }
+
+			    }
+		    }
+
+		    return $this->redirect(['view', 'id' => $model->id]);
+	    }
+
+
+
+
+
 	    if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -155,10 +183,16 @@ class ProductsController extends Controller
      */
     protected function findModel($id)
     {
+
         if (($model = Products::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+
+
+
+
 }

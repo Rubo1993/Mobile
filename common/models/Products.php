@@ -15,6 +15,7 @@ use yii\behaviors\SluggableBehavior;
  * @property double $sale_prise
  * @property string $sku
  * @property int $quantity
+ * @property int $reyting
  * @property int $available_stock
  * @property string $is_new
  * @property string $is_sale
@@ -59,7 +60,7 @@ class Products extends \yii\db\ActiveRecord
             [['title', 'price', 'sku', 'quantity', 'available_stock', 'cat_id', 'brand_id', 'slug'], 'required'],
             [['description', 'is_new', 'is_sale', 'best'], 'string'],
             [['price', 'sale_prise'], 'number'],
-            [['quantity', 'available_stock', 'cat_id', 'brand_id'], 'integer'],
+            [['quantity', 'reyting', 'available_stock', 'cat_id', 'brand_id'], 'integer'],
             [['title', 'image', 'is_feature'], 'string', 'max' => 255],
             [['sku', 'slug'], 'string', 'max' => 150],
             [['sku'], 'unique'],
@@ -90,6 +91,7 @@ class Products extends \yii\db\ActiveRecord
             'brand_id' => 'Brand ID',
             'slug' => 'Slug',
             'best' => 'Best',
+	        'reyting'=>'Reyting',
         ];
     }
 
