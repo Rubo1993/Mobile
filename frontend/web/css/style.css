@@ -766,6 +766,30 @@ h5 { font-size: 14px; color: #1c1e1e; text-transform: uppercase; line-height: 1;
 
 
 /*My css*/
+.myBut{
+    position: relative;
+    border: none;
+}
+.myIcon{
+    position: absolute;
+    /*left:47.5%;*/
+    /*bottom:9.5%;*/
+    pointer-events: none;
+    margin: 10px;
+    z-index:999;
+    color: white;
+}
+.prodBut{
+    border:none;
+    position: relative;;
+}
+/*.prIcon{*/
+    /*position: absolute;*/
+    /*bottom: 60px;*/
+    /*right: 50px*/
+    /*z-index:999;*/
+    /*color: white;*/
+/*}*/
 .product_flex{
     display: flex;
 

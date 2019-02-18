@@ -1,3 +1,4 @@
+<?php //echo Yii::$app->request->get('add_product');?>
 <div class="page-header">
 	<div class="container">
 		<div class="row">

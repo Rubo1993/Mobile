@@ -43,6 +43,7 @@ class AppAsset extends AssetBundle
 	    'js/scrolling-nav.js',
 	    'js/sticky-header.js',
 	    'js/showUl.js',
+	    'js/script.js',
 
     ];
 //	public function init()
