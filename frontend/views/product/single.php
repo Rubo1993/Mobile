@@ -25,7 +25,7 @@
 <!--                                </li>-->
 <!--                            </ul>-->
 <!--                        </div>-->
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 single_half">
                             <div id="slideshow"><img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $products['image'] ?>" alt=""></div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

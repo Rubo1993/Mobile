@@ -52,7 +52,7 @@ AppAsset::register($this);
                             <li><a href="#" class="title hidden-xs">My Account</a></li>
                             <li class="hidden-xs">|</li>
                             <li><a href="site/signup" class="title hidden-xs">Register</a></li>
-                            <li><a href="#" class="title"><i class="fa fa-shopping-cart"></i>   <sup class="cart-quantity">1</sup></a></li>
+                            <li><a href="<?=\yii\helpers\Url::to(['/']) . 'site/cart'?>" class="title"><i class="fa fa-shopping-cart"></i>   <sup class="cart-quantity">1</sup></a></li>
                         </ul>
                     </div>
                     <!-- /.account -->
@@ -164,7 +164,7 @@ AppAsset::register($this);
             <!-- footer-contact links -->
             <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="footer-widget">
-                    <h3 class="footer-title">Contact Info </h3>
+                    <h3 class="footer-title footer_my_title">Contact Info </h3>
                     <div class="contact-info">
                         <span class="contact-icon"><i class="fa fa-map-marker"></i></span>
                         <span class="contact-text">1683 Pickens Way Sherman,<br>

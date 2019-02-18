@@ -77,6 +77,7 @@
                                         <h5>
                                             <a href="<?= \yii\helpers\Url::to( [ '/' ] ) . 'product/single/' . $product['slug'] ?>"
                                                class="product-title"><?= $product['title'] ?></a></h5>
+
                                         <div class="product-meta"><a href="#"
                                                                      class="product-price"><?= $product['sale_prise'] ?></a>
                                             <a href="#" class="discounted-price"><?= $product['price'] ?></a>

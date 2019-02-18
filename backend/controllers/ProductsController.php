@@ -39,6 +39,10 @@ class ProductsController extends Controller
      * Lists all Products models.
      * @return mixed
      */
+
+
+
+
     public function actionIndex()
     {
         $searchModel = new ProductsSearch();

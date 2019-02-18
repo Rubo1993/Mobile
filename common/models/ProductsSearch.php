@@ -43,10 +43,14 @@ class ProductsSearch extends Products
     {
         $query = Products::find();
 
+
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+	            'pageSize' => 5
+            ],
         ]);
 
         $this->load($params);

@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		        'format' => 'raw',
 		        'filter'=> '',
 		        'value' => function($model){
-			        return Html::img(\yii\helpers\Url::to('@image/brandsgi/'.$model->image),['width' => '70px','height' => '100px','class'=>'img']);
+			        return Html::img(\yii\helpers\Url::to('@image/brands/'.$model->image),['width' => '100px','height' => '50px','class'=>'img']);
 		        }
 	        ] ,
             'cat_id',

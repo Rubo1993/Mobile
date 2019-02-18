@@ -175,6 +175,9 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    public function actionCart(){
+    	return $this->render('cart');
+    }
     public function actionAbout()
     {
         return $this->render('about');

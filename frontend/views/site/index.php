@@ -85,7 +85,8 @@ if ($prodKey==1){
 
             <div class="showcase-img">
 
-                <a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug']?>"> <img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>" alt="" style="padding-left: 80px;"></a>
+                <a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug']?>"> <img class="centre_product" src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>" alt="" style="padding-left: 80px;"></a>
+                <div><a href="#" class="product-btn btn-cart"><i class="fa fa-shopping-cart"></i></a></div>
             </div>
         </div>
     </div>
@@ -105,7 +106,7 @@ if ($prodKey==1){
             <div>
                 <div class="product-content">
                     <h5><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug']?>" class="product-title"><?= $product['title']?></a></h5>
-
+                  <a href="#" class="product-btn btn-cart"><i class="fa fa-shopping-cart"></i></a>
                 </div>
 
             </div>
@@ -161,9 +162,13 @@ if ($prodKey==1){
 	                        <div class="item">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="product-block">
-                                    <div class="brand_image"><img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/brands/'.$brands['image']?>" alt=""></div>
+                                    <div class="brand_image">
+                                        <a href="<?=\yii\helpers\Url::to(['/']) . 'product/index/'.$brands['slug']?>">
+                                        <img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/brands/'.$brands['image']?>" alt="">
+                                        </a>
+                                    </div>
                                     <div class="product-content">
-                                        <h5><a href="#" class="product-title"><?= $brands['title']?></a></h5>
+                                        <h5><a href="<?=\yii\helpers\Url::to(['/']) . 'product/index/'.$brands['slug']?>" class="product-title"><?= $brands['title']?></a></h5>
 
                                     </div>
                                 </div>
@@ -240,12 +245,12 @@ if ($prodKey==1){
                                ?>
                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 productMyclass">
                                    <div class="product-block">
-                                       <div class="product-img"><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$bests['slug']?>"><img class="best_product_img" src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $bests['image'] ?>" alt=""></a></div>
+                                       <div class="product-img"><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$bests['slug']?>"><img  src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $bests['image'] ?>" class="best_images" alt=""></a></div>
                                        <div class="product-content">
                                            <h5><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$bests['slug']?>" class="product-title"><?=$bests['title']?></a></h5>
                                            <div class="product-meta"><a href="#" class="product-price"><?=$bests['sale_prise']?></a>
                                                <a href="#" class="discounted-price"><?=$bests['price']?></a>
-
+                                               <a href="#" class="product-btn btn-cart"><i class="fa fa-shopping-cart"></i></a>
                                            </div>
 
                                        </div>
