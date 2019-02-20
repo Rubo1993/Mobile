@@ -790,6 +790,11 @@ border-radius: 50%;
 .no_prod_qty{
     color: red;
 }
+.productMyClass img{
+    object-fit: contain;
+    width: 200px;
+    height:280px;!important;
+}
 #empty_cart{
     color:red;
 

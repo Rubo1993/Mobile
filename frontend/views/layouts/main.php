@@ -48,12 +48,28 @@ AppAsset::register($this);
                 <!-- account -->
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="account-section">
+
+                            <?php
+                            if (Yii::$app->user->id){
+                            ?>
+
+<!--                                <li><a href="--><?//=\yii\helpers\Url::to(['/']).'site/signup'?><!--" class="title hidden-xs">Logout</a></li>-->
                         <ul>
-                            <li><a href="#" class="title hidden-xs">My Account</a></li>
+                            <li><a href="<?=\yii\helpers\Url::to(['/']).'site/login'?>" class="title hidden-xs">Ելք</a></li></li>
                             <li class="hidden-xs">|</li>
-                            <li><a href="<?=\yii\helpers\Url::to(['/']).'site/signup'?>" class="title hidden-xs">Register</a></li>
-                            <li><a href="<?=\yii\helpers\Url::to(['/']) . 'cart'?>" class="title"><i class="fa fa-shopping-cart"></i>   <sup class="cart-quantity"><?= \frontend\widgets\cart\CartWidget::widget(); ?></sup></a></li>
+                                <li><a href="<?=\yii\helpers\Url::to(['/']) . 'cart'?>" class="title"><i class="fa fa-shopping-cart"></i>   <sup class="cart-quantity"><?= \frontend\widgets\cart\CartWidget::widget(); ?></sup></a></li>
                         </ul>
+                            <?php
+                        }else{
+                                ?>
+                            <ul>
+                            <li><a href="<?=\yii\helpers\Url::to(['/']).'site/login'?>" class="title hidden-xs">Մուտք</a></li>
+
+                            <li><a href="<?=\yii\helpers\Url::to(['/']).'site/signup'?>" class="title hidden-xs">Գրանցվել</a></li>
+                            </ul>
+                            <?php }
+                        ?>
+
                     </div>
                     <!-- /.account -->
                 </div>

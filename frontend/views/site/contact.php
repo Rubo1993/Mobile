@@ -73,42 +73,6 @@
             </div>
             <!-- /.address-block -->
         </div>
-        <!-- support-block -->
-<!--        <div class="row">-->
-<!--            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
-<!--                <div class="box">-->
-<!--                    <div class="box-head">-->
-<!--                        <h3 class="head-title">How Can We Help You?</h3>-->
-<!--                    </div>-->
-<!--                    <div class="box-body">-->
-<!--                        <div class="row">-->
-<!--                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">-->
-<!--                                <div class="suport-block">-->
-<!--                                    <div class="support-icon">-->
-<!--                                        <img src="./images/inquiry_icon.png" alt="">-->
-<!--                                    </div>-->
-<!--                                    <div class="support-content">-->
-<!--                                        <h4>Sales Inquiry</h4>-->
-<!--                                        <p>Suspendisse sodales venenatis velitut fringilla lorem on vulputateam augue nislpretium qutristique sodales serotut fringilla.</p>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">-->
-<!--                                <div class="suport-block">-->
-<!--                                    <div class="support-icon">-->
-<!--                                        <img src="./images/support_icon.png" alt="">-->
-<!--                                    </div>-->
-<!--                                    <div class="support-content">-->
-<!--                                        <h4>Customer Support</h4>-->
-<!--                                        <p>Pendisse sodales venenatis velitut fringilla lorem on vulputateam augue nislpretium qutristique sodales seron magna.</p>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
         <div style="width: 100%">
             <iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=gyumri%20vardananc%20hraparak+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                 <a href="https://www.maps.ie/map-my-route/">Draw map route</a>
@@ -116,5 +80,4 @@
     </div><br />
     </div>
 </div>
-<!-- /.support-block -->
-<!-- contact-map -->
+

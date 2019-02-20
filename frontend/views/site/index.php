@@ -33,7 +33,7 @@
 					if ($prodKey==1){
 						?>
 
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 animaded bounceInUp">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 animated bounceInUp">
                             <div class="showcase-block active ">
                                 <div class="display-logo alignleft">
                                     <a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug'] ?>">  <?=$product['title']?>
@@ -41,12 +41,7 @@
                                 </div>
 
                                 <div class="showcase-img">
-
                                     <a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug']?>"> <img class="centre_product" src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>" alt="" style="padding-left: 80px;"></a>
-                                    <!--                <form method="get" action="--><?//=\yii\helpers\Url::to(['/']) . 'cart/add'?><!--">-->
-                                    <!--                    <input type="hidden" name="add_product"  value="--><?//=$product['id']?><!--">-->
-                                    <!--                    <i class="fa fa-shopping-cart myIcon"></i><input type="submit" name="submit" class="product-btn btn-cart myBut sendBut add_to_cart" value="">-->
-                                    <!--                </form>-->
                                 </div>
                             </div>
                         </div>
@@ -57,19 +52,13 @@
 						?>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <div class="showcase-block">
-                                <!--                        <div class="display-logo ">-->
-                                <!--                            <a href="#"><img src="./images/htc.png" alt=""></a>-->
-                                <!--                        </div>-->
+
                                 <div class="showcase-img">
                                     <a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug']?>"><img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>" alt=""></a>
                                 </div>
                                 <div>
                                     <div class="product-content">
                                         <h5><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug']?>" class="product-title"><?= $product['title']?></a></h5>
-                                        <!--                    <form method="get" action="--><?//=\yii\helpers\Url::to(['/']) . 'cart/add/'?><!--">-->
-                                        <!--                        <input type="hidden" name="add_product" value="--><?//=$product['id']?><!--">-->
-                                        <!--                        <i class="fa fa-shopping-cart myIcon"></i><input type="submit" name="submit" class="product-btn btn-cart myBut sendBut add_to_cart" value="">-->
-                                        <!--                    </form>-->
                                     </div>
 
                                 </div>

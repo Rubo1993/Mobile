@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
                 <!-- sidenav-section -->
-                <div id='cssmenu'>
+                <div id='cssmenu' class="animated bounceln">
                     <ul>
                         <li class='has-sub'><a href='#'>CATEGORY</a>
                             <ul>
@@ -68,7 +68,7 @@
 							?>
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb30">
                                 <div class="product-block">
-                                    <div class="product-img"><img
+                                    <div class="product-img productMyClass animated shake"><img
                                                 src="<?= \yii\helpers\Url::to( [ '/' ] ) . 'images/uploads/products/' . $product['image'] ?>"
                                                 alt=""></div>
                                     <div class="product-content">
@@ -77,9 +77,9 @@
                                                class="product-title"><?= $product['title'] ?></a></h5>
 
                                         <div class="product-meta"><a href="#"
-                                                                     class="product-price"><?= $product['price'] ?> </a>
+                                                                     class="product-price"><?= $product['sale_prise'] ?> </a>
                                             <a href="#" class="discounted-price">
-												<?= $product['sale_prise'] ?>
+												<?= $product['price'] ?>
                                             </a>
                                             <span class="offer-price">20%off</span>
                                         </div>
