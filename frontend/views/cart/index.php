@@ -6,10 +6,10 @@
 
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/product">Product List</a></li>
-                            <li>Product Single</li>
-                            <li>Cart</li>
+                            <li><a href="<?= \yii\helpers\Url::to('/')?>">Գլխավոր</a></li>
+                            <li><a href="<?= \yii\helpers\Url::to('product') ?>">Ապրանքների ցուցակը</a></li>
+
+                            <li><a href="<?= \yii\helpers\Url::to('cart') ?>">Cart</a></li>
                         </ol>
                     </div>
 
@@ -116,7 +116,8 @@
                                             <tr>
                                                 <th>
                                                     <span>Արժեք (2 items)</span></th>
-                                                <td>$2400</td>
+<!--                                                --><?php //var_dump($cart)?>
+                                                <td><?=$cart['product']['price']?></td>
                                             </tr>
                                             <tr>
                                                 <th>
@@ -133,7 +134,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <button class="btn btn-primary btn-block">Proceed To Checkout</button>
+                                    <button class="btn btn-primary btn-block">Պատվիրել</button>
                                 </div>
                             </div>
                         </div>

@@ -24,9 +24,18 @@ class CartController extends Controller {
 		]);
 	}
 	public function actionAdd(){
+
 		$id=\Yii::$app->request->get('add_product');
 		$product=Products::findOne($id);
 		$qty=\Yii::$app->request->get('quantity');
+		if (!empty($qty)){
+			$product->available_stock -=$qty;
+			$product->quantity -=$qty;
+            $product->save();
+
+
+		}
+
 		if (!empty($id) && !empty($qty)){
 			$user=Yii::$app->user->id;
 			$cartProduct=Products::findOne($id);
@@ -35,6 +44,7 @@ class CartController extends Controller {
 				if (!empty($cart)){
 					$cart->quantity+=$qty;
 					$cart->save(false);
+
 				}else{
 					$add_cart=new Cart();
 					$add_cart->product_id = $product['id'];
@@ -43,6 +53,7 @@ class CartController extends Controller {
 					$add_cart->save();
 				}
 			}
+
 			$this->redirect('/cart');
 		}else{
 			?>

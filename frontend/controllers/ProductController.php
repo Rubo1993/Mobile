@@ -42,6 +42,7 @@ class ProductController extends controller {
 		] );
 	}
 	public function actionSingle( $slug = '' ) {
+
 		$products = Products::findOne( [ 'slug' => $slug ] );
 		return $this->render( 'single', [
 			'products' => $products,

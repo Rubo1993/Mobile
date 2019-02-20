@@ -787,6 +787,9 @@ border-radius: 50%;
     color:#ed6908;
     border-color: #ed6908;
 }
+.no_prod_qty{
+    color: red;
+}
 #empty_cart{
     color:red;
 
