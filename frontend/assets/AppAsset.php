@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
 	    'css/owl.theme.default.css',
 	    'css/scrolling-nav.css',
 	    'css/style.css',
+	    'css/animate.css',
     ];
     public $js = [
 	    'js/bootstrap.js',

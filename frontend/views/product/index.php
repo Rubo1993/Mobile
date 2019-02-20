@@ -39,10 +39,8 @@
                         <li class='has-sub'><a href='#'>Brand</a>
                             <ul>
 								<?php
-
 								if ( ! empty( $brand ) ) {
 									foreach ( $brand as $br ) {
-
 										?>
 
                                         <li class="categoryList"><a
@@ -81,7 +79,7 @@
                                         <div class="product-meta"><a href="#"
                                                                      class="product-price"><?= $product['price'] ?> </a>
                                             <a href="#" class="discounted-price">
-	                                            <?= $product['sale_prise'] ?>
+												<?= $product['sale_prise'] ?>
                                             </a>
                                             <span class="offer-price">20%off</span>
                                         </div>
@@ -95,7 +93,6 @@
 							<?php
 						}
 					}
-
 					?>
 
                     <!-- /.product -->
@@ -108,15 +105,15 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 
-                        <div class="paginationDIv">
-		                    <?php
-		                    echo \yii\widgets\LinkPager::widget(
-			                    [
-				                    'pagination' => $pagination,
-			                    ]);
-		                    ?>
-
-                        </div>
+<!--                        <div class="paginationDIv">-->
+<!--							--><?php
+//							echo \yii\widgets\LinkPager::widget(
+//								[
+//									'pagination' => $pagination,
+//								]);
+//							?>
+<!---->
+<!--                        </div>-->
                     </div>
                     <!-- pagination close -->
                 </div>

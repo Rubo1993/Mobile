@@ -45,7 +45,6 @@ return [
 				'product/<slug>'         => 'product/index',
 				'product/single/<slug>'  => 'product/single',
 				'product/<slug>/<brand>' => 'product/index',
-
 				'product' => 'product/index',
 
 			],

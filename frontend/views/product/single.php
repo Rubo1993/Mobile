@@ -62,7 +62,7 @@
 
 
                                 </div>
-                                <p class="product-price" style="font-size: 38px;">$<?= $products['price']?> <strike>$<?= $products['sale_prise']?></strike></p>
+                                <p class="product-price" style="font-size: 38px;">$<?= $products['sale_prise']?> <strike>$<?= $products['price']?></strike></p>
                                 <p><?= $products['description']?></p>
 
 
@@ -76,7 +76,7 @@
                                     </div>
                                     <input type="hidden" name="add_product"  value="<?=$products['id']?>">
 <!--                                    <input type="hidden" name="product_qty"  value="--><?//=$products['quantity']?><!--">-->
-                                <input type="submit" class="btn btn-default" name="add_to_cart" value=" Add to cart"><i class="fa fa-shopping-cart"></i>&nbsp;</input>
+                                <input type="submit" class="btn btn-default" name="add_to_cart" value=" Add to cart"></input>
                                 </form>
 
 
