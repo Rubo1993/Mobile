@@ -52,7 +52,7 @@ AppAsset::register($this);
                             <li><a href="#" class="title hidden-xs">My Account</a></li>
                             <li class="hidden-xs">|</li>
                             <li><a href="site/signup" class="title hidden-xs">Register</a></li>
-                            <li><a href="<?=\yii\helpers\Url::to(['/']) . 'cart/add'?>" class="title"><i class="fa fa-shopping-cart"></i>   <sup class="cart-quantity">1</sup></a></li>
+                            <li><a href="<?=\yii\helpers\Url::to(['/']) . 'cart'?>" class="title"><i class="fa fa-shopping-cart"></i>   <sup class="cart-quantity">1</sup></a></li>
                         </ul>
                     </div>
                     <!-- /.account -->

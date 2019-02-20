@@ -14,14 +14,21 @@ use common\models\Slider;
 use yii\web\controller;
 use common\models\Products;
 use yii\web\NotFoundHttpException;
+use  yii\data\Pagination;
+
 
 class ProductController extends controller {
 
 	public function actionIndex( $slug = '', $brand = "" ) {
+		$allProduct = Products::find()->orderBy(['title'=>4]);
+
+		$pagination= new Pagination(['totalCount'=>$allProduct->count(),'pageSize'=>2]);
+
+
+
+
 		$category = Categories::find()->asArray()->all();
-
 		$products = Products::find();
-
 		if ( $slug && $slug != 'index' ) {
 			$cat = Categories::findOne( [ 'slug' => $slug ] );
 
@@ -48,6 +55,7 @@ class ProductController extends controller {
 			'category' => $category,
 			'brand'    => $brand_model,
 			'products' => $products,
+			'pagination'=>$pagination,
 			'slug'     => $slug ? $slug : 'index',
 
 		] );

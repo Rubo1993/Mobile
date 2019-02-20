@@ -64,13 +64,27 @@
                                 </div>
                                 <p class="product-price" style="font-size: 38px;">$<?= $products['price']?> <strike>$<?= $products['sale_prise']?></strike></p>
                                 <p><?= $products['description']?></p>
-                                <div class="product-quantity">
-                                    <h5>Quantity</h5>
-                                    <div class="quantity mb20">
-                                        <input type="number" class="input-text qty text" step="1" min="1" max="<?=$products['available_stock']?>" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*">
+
+
+
+                                <form method="get" action="<?=\yii\helpers\Url::to(['/']) . 'cart/add'?>">
+                                    <div class="product-quantity">
+                                        <h5>Quantity</h5>
+                                        <div class="quantity mb20">
+                                            <input type="number" class="input-text qty text" step="1" min="1" max="<?=$products['available_stock']?>" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*">
+                                        </div>
                                     </div>
-                                </div>
-                                <button type="submit" class="btn btn-default"><i class="fa fa-shopping-cart"></i>&nbsp;Add to cart</button>
+                                    <input type="hidden" name="add_product"  value="<?=$products['id']?>">
+<!--                                    <input type="hidden" name="product_qty"  value="--><?//=$products['quantity']?><!--">-->
+                                <input type="submit" class="btn btn-default" name="add_to_cart" value=" Add to cart"><i class="fa fa-shopping-cart"></i>&nbsp;</input>
+                                </form>
+
+
+
+
+<!--                                    <i class="fa fa-shopping-cart myIcon"></i><input type="submit" name="submit" class="product-btn btn-cart myBut sendBut add_to_cart" value="">-->
+
+
 
                             </div>
                         </div>

@@ -79,8 +79,10 @@
                                                class="product-title"><?= $product['title'] ?></a></h5>
 
                                         <div class="product-meta"><a href="#"
-                                                                     class="product-price"><?= $product['sale_prise'] ?></a>
-                                            <a href="#" class="discounted-price"><?= $product['price'] ?></a>
+                                                                     class="product-price"><?= $product['price'] ?> </a>
+                                            <a href="#" class="discounted-price">
+	                                            <?= $product['sale_prise'] ?>
+                                            </a>
                                             <span class="offer-price">20%off</span>
                                         </div>
                                         <div class="shopping-btn">
@@ -104,14 +106,16 @@
                 <div class="row">
                     <!-- pagination start -->
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="st-pagination">
-                            <ul class="pagination">
-                                <li><a href="#" aria-label="previous"><span aria-hidden="true">Previous</span></a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#" aria-label="Next"><span aria-hidden="true">Next</span></a></li>
-                            </ul>
+
+
+                        <div class="paginationDIv">
+		                    <?php
+		                    echo \yii\widgets\LinkPager::widget(
+			                    [
+				                    'pagination' => $pagination,
+			                    ]);
+		                    ?>
+
                         </div>
                     </div>
                     <!-- pagination close -->

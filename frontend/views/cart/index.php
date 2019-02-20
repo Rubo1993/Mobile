@@ -6,8 +6,8 @@
 
 				<div class="page-breadcrumb">
 					<ol class="breadcrumb">
-						<li><a href="#">Home</a></li>
-						<li>Product List</li>
+						<li><a href="/">Home</a></li>
+						<li><a href="/product">Product List</a></li>
 						<li>Product Single</li>
 						<li>Cart</li>
 					</ol>
@@ -19,6 +19,10 @@
 </div>
 <!-- /.page-header-->
 <!-- cart-section -->
+<?php
+if (!empty($get_cart)){
+foreach ($get_cart as $cart){
+?>
 <div class="space-medium">
 	<div class="container">
 		<div class="row">
@@ -35,55 +39,59 @@
 									<thead>
 									<tr>
 										<th>
-											<span>Item</span></th>
+											<span>Ապրանք</span></th>
 										<th>
-											<span>Price</span></th>
+											<span>Գին</span></th>
 										<th>
-											<span>Quantity</span></th>
+											<span>Քանակ</span></th>
 										<th>
-											<span>Total</span></th>
+											<span>Ընդհանուր</span></th>
 										<th>
 										</th>
 									</tr>
 									</thead>
 									<tbody>
-									<tr>
-										<td><a href="#"><img src="./images/cart_product_1.png" alt=""></a>
-											<span><a href="#">Google Pixle</a></span>
-										</td>
-										<td>$1100</td>
-										<td>
-											<div class="product-quantity">
-												<div class="quantity">
-													<input type="number" class="input-text qty text" step="1" min="1" max="6" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*">
-												</div>
-											</div>
-										</td>
-										<td>$1100.00</td>
-										<th scope="row"><a href="#" class="btn-close"><i class="fa fa-times-circle-o"></i></a></th>
-									</tr>
-									<tr>
-										<td><a href="#"><img src="./images/cart_product_2.png" alt=""></a>
-											<span><a href="#">Apple iPhone 6S </a></span>
-										</td>
-										<td>$1300</td>
-										<td>
-											<div class="product-quantity">
-												<div class="quantity">
-													<input type="number" class="input-text qty text " step="1" min="1" max="6" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*">
-												</div>
-											</div>
-										</td>
-										<td>$1300.00</td>
-										<th scope="row"><a href="#" class="btn-close"><i class="fa fa-times-circle-o"></i></a></th>
-									</tr>
-									</tbody>
-								</table>
-							</div>
+
+
+
+
+
+
+    <tr>
+        <td><a href="#"><img class="cart_image" src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $cart['product']['image'] ?>" alt=""></a>
+            <span><a href="#"><?=$cart['product']['title']?></a></span>
+        </td>
+        <td><?=$cart['product']['price']?> Դ</td>
+        <td>
+            <div class="product-quantity">
+                <div class="quantity">
+                    <input type="number" class="input-text qty text" step="1" min="1" max="<?=$cart['product']['available_stock']?>" name="quantity" value="<?=$cart['quantity']?>" title="Qty" size="4" pattern="[0-9]*">
+                </div>
+            </div>
+        </td>
+
+        <td><?=($cart['product']['price'] * $cart['quantity'] )?> Դ</td>
+        <form method="get" action="<?=\yii\helpers\Url::to(['/']) . 'cart/delete'?>">
+            <input type="hidden" name="user_id" value="<?=$cart['product']['id']?>">
+            <input type="hidden" name="car_id" value="<?=$cart['user_id']?>">
+        <th scope="row"><input type="submit" value="X" class=" delet_btn"></th>
+        </form>
+    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <form method="get" action="<?=\yii\helpers\Url::to(['/']) . 'cart/delete'?>">
+                                <input type="hidden" name="user_id" value="<?=$cart['product']['id']?>">
+                                <input type="submit" name="submit" value="remove_all">
+                            </form>
+
+
+
 							<!-- /.cart-table-section -->
 						</div>
 					</div>
 				</div>
+
 				<a href="#" class="btn-link"><i class="fa fa-angle-left"></i> back to shopping</a>
 			</div>
 			<!-- cart-total -->
@@ -99,20 +107,20 @@
 									<tbody>
 									<tr>
 										<th>
-											<span>Price (2 items)</span></th>
+											<span>Արժեք (2 items)</span></th>
 										<td>$2400</td>
 									</tr>
 									<tr>
 										<th>
-											<span>Delivery Charges</span></th>
-										<td><strong class="text-green">Free</strong></td>
+											<span>Առաքմում</span></th>
+										<td><strong class="text-green">Անվճար</strong></td>
 									</tr>
 									</tbody>
 									<tbody>
 									<tr>
 										<th>
 											<span class="mb0" style="font-weight: 700;">Amount Payable</span></th>
-										<td style="font-weight: 700; color: #1c1e1e; ">$2400</td>
+										<td style="font-weight: 700; color: #1c1e1e; ">5500</td>
 									</tr>
 									</tbody>
 								</table>
@@ -139,5 +147,19 @@
 			</div>
 		</div>
 		<!-- /.cart-total -->
+
+
+
+
+
 	</div>
 </div>
+	<?php
+}
+}
+else{
+	?>
+    <h1>Քարտը դատարկ է</h1>
+	<?php
+}
+?>

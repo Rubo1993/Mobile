@@ -770,6 +770,27 @@ h5 { font-size: 14px; color: #1c1e1e; text-transform: uppercase; line-height: 1;
     position: relative;
     border: none;
 }
+.cart_image{
+    width: 30px;
+    height:60px;
+    object-fit: contain;
+}
+.delet_btn{
+border-radius: 50%;
+    background-color: white;
+    border:3px solid #c5c8ca ;
+    color: #c5c8ca;
+    font-size:12px;
+    padding:4px ;!important;
+}
+.delet_btn:hover{
+    color:#ed6908;
+    border-color: #ed6908;
+}
+#empty_cart{
+    color:red;
+
+}
 .myIcon{
     position: absolute;
     /*left:47.5%;*/

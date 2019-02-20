@@ -86,10 +86,10 @@ if ($prodKey==1){
             <div class="showcase-img">
 
                 <a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug']?>"> <img class="centre_product" src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/products/' . $product['image'] ?>" alt="" style="padding-left: 80px;"></a>
-                <form method="get" action="<?=\yii\helpers\Url::to(['/']) . 'cart/add'?>">
-                    <input type="hidden" name="add_product" value="<?=$product['id']?>">
-                    <i class="fa fa-shopping-cart myIcon"></i><input type="submit" name="submit" class="product-btn btn-cart myBut sendBut add_to_cart" value="">
-                </form>
+<!--                <form method="get" action="--><?//=\yii\helpers\Url::to(['/']) . 'cart/add'?><!--">-->
+<!--                    <input type="hidden" name="add_product"  value="--><?//=$product['id']?><!--">-->
+<!--                    <i class="fa fa-shopping-cart myIcon"></i><input type="submit" name="submit" class="product-btn btn-cart myBut sendBut add_to_cart" value="">-->
+<!--                </form>-->
             </div>
         </div>
     </div>
@@ -109,10 +109,10 @@ if ($prodKey==1){
             <div>
                 <div class="product-content">
                     <h5><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug']?>" class="product-title"><?= $product['title']?></a></h5>
-                    <form method="get" action="<?=\yii\helpers\Url::to(['/']) . 'cart/add/'?>">
-                        <input type="hidden" name="add_product" value="<?=$product['id']?>">
-                        <i class="fa fa-shopping-cart myIcon"></i><input type="submit" name="submit" class="product-btn btn-cart myBut sendBut add_to_cart" value="">
-                    </form>
+<!--                    <form method="get" action="--><?//=\yii\helpers\Url::to(['/']) . 'cart/add/'?><!--">-->
+<!--                        <input type="hidden" name="add_product" value="--><?//=$product['id']?><!--">-->
+<!--                        <i class="fa fa-shopping-cart myIcon"></i><input type="submit" name="submit" class="product-btn btn-cart myBut sendBut add_to_cart" value="">-->
+<!--                    </form>-->
                 </div>
 
             </div>
@@ -134,11 +134,7 @@ if ($prodKey==1){
 		    echo \yii\widgets\LinkPager::widget(
 			    [
 				    'pagination' => $pagination,
-
 			    ]);
-
-
-
 		    ?>
 
         </div>
@@ -256,10 +252,10 @@ if ($prodKey==1){
                                            <h5><a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$bests['slug']?>" class="product-title"><?=$bests['title']?></a></h5>
                                            <div class="product-meta"><a href="#" class="product-price"><?=$bests['sale_prise']?></a>
                                                <a href="#" class="discounted-price"><?=$bests['price']?></a>
-                                               <form method="get" action="<?=\yii\helpers\Url::to(['/']) . 'cart/add/'?>">
-                                                   <input type="hidden" name="add_product" value="<?=$bests['id']?>">
-                                                  <i class="fa fa-shopping-cart myIcon"></i><input type="submit" name="submit" class="product-btn btn-cart myBut sendBut add_to_cart" value="">
-                                               </form>
+<!--                                               <form method="get" action="--><?//=\yii\helpers\Url::to(['/']) . 'cart/add/'?><!--">-->
+<!--                                                   <input type="hidden" name="add_product" value="--><?//=$bests['id']?><!--">-->
+<!--                                                  <i class="fa fa-shopping-cart myIcon"></i><input type="submit" name="submit" class="product-btn btn-cart myBut sendBut add_to_cart" value="">-->
+<!--                                               </form>-->
 <!--                                               <a href="--><?//=\yii\helpers\Url::to(['/']) . 'cart/add'.'/'?><!--" class="product-btn btn-cart"><i class="fa fa-shopping-cart"></i></a>-->
                                            </div>
 

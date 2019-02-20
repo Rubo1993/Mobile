@@ -93,7 +93,7 @@ class SiteController extends Controller
 		$allProduct = Products::find()->orderBy(['title'=>4]);
 		$allBrands = Brands::find()->asArray()->all();
 		$bestProducts = Products::find()->where(['best'=>'1'])->limit(8)->asArray()->all();
-		$pagination= new Pagination(['totalCount'=>$allProduct->count(),'pageSize'=>7]);
+		$pagination= new Pagination(['totalCount'=>$allProduct->count(),'pageSize'=>6]);
 
 		$slider=Slider::find()->asArray()->all();
 
