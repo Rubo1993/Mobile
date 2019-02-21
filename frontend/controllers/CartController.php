@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 18.02.2019
- * Time: 12:05
- */
+
 namespace frontend\controllers;
 use common\models\Cart;
 use yii\web\Controller;
@@ -14,28 +9,36 @@ use yii\web\UploadedFile;
 class CartController extends Controller {
 	public function actionIndex() {
 		$user = Yii::$app->user->id;
+
 		if (!empty($user)){
 			$get_cart = Cart::find()->with('product')->where(['user_id' => $user])->asArray()->all();
+$total=0;
+
+                    foreach ($get_cart as $c) {
+	                    if ( ! empty( $c['product']['sale_prise'] ) ) {
+		                    $total = ( $c['product']['sale_prise'] + $total ) * $c['quantity'];
+	                    } else {
+		                    $total = ( $c['product']['price'] + $total ) * $c['quantity'];
+	                    }
+                    }
+//
 		}else{
 			echo "empty";
 		}
 		return $this->render('index',[
 			'get_cart'=>$get_cart,
+            'total'=>$total,
 		]);
 	}
 	public function actionAdd(){
-
 		$id=\Yii::$app->request->get('add_product');
 		$product=Products::findOne($id);
 		$qty=\Yii::$app->request->get('quantity');
 		if (!empty($qty)){
 			$product->available_stock -=$qty;
 			$product->quantity -=$qty;
-            $product->save();
-
-
+			$product->save();
 		}
-
 		if (!empty($id) && !empty($qty)){
 			$user=Yii::$app->user->id;
 			$cartProduct=Products::findOne($id);
@@ -44,7 +47,6 @@ class CartController extends Controller {
 				if (!empty($cart)){
 					$cart->quantity+=$qty;
 					$cart->save(false);
-
 				}else{
 					$add_cart=new Cart();
 					$add_cart->product_id = $product['id'];
@@ -53,7 +55,6 @@ class CartController extends Controller {
 					$add_cart->save();
 				}
 			}
-
 			$this->redirect('/cart');
 		}else{
 			?>

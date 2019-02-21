@@ -55,7 +55,7 @@ AppAsset::register($this);
 
 <!--                                <li><a href="--><?//=\yii\helpers\Url::to(['/']).'site/signup'?><!--" class="title hidden-xs">Logout</a></li>-->
                         <ul>
-                            <li><a href="<?=\yii\helpers\Url::to(['/']).'site/login'?>" class="title hidden-xs">Ելք</a></li></li>
+                            <li><a href="<?=\yii\helpers\Url::to(['/']).'site/logout'?>" class="title hidden-xs">Ելք</a></li></li>
                             <li class="hidden-xs">|</li>
                                 <li><a href="<?=\yii\helpers\Url::to(['/']) . 'cart'?>" class="title"><i class="fa fa-shopping-cart"></i>   <sup class="cart-quantity"><?= \frontend\widgets\cart\CartWidget::widget(); ?></sup></a></li>
                         </ul>
@@ -85,12 +85,12 @@ AppAsset::register($this);
                         <div id="navigation">
 	                        <?php
 	                        $menuItems = [
-		                        ['label' => 'ԳԼԽԱՎՈՐ', 'url' => ['/']],
-		                        ['label' => 'ՀԵՌԱԽՈՍՆԵՐ', 'url' => ['product/telephone']],
-		                        ['label' => 'ԱԿՍԵՍՈՒԱՐՆԵՐ', 'url' => ['product/accessories']],
-		                        ['label' => 'ԲՈւՖԵՐՆԵՐ', 'url' => ['product/buffers']],
-		                        ['label' => 'ՆՈՈՒԹԲՈՒՔԵՐ', 'url' => ['product/notebooke']],
-		                        ['label' => 'ԿԱՊ', 'url' => ['contact']],
+		                        ['label' => 'ԳԼԽԱՎՈՐ', 'url' => ['@web/']],
+		                        ['label' => 'ՀԵՌԱԽՈՍՆԵՐ', 'url' => ['@web/product/telephone']],
+		                        ['label' => 'ԱԿՍԵՍՈՒԱՐՆԵՐ', 'url' => ['@web/product/accessories']],
+		                        ['label' => 'ԲՈւՖԵՐՆԵՐ', 'url' => ['@web/product/buffers']],
+		                        ['label' => 'ՆՈՈՒԹԲՈՒՔԵՐ', 'url' => ['@web/product/notebooke']],
+		                        ['label' => 'ԿԱՊ', 'url' => ['@web/site/contact']],
 	                        ];
 	                        echo Nav::widget([
 		                        'options' => ['class' => 'active'],
