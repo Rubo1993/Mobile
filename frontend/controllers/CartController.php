@@ -36,9 +36,45 @@ class CartController extends Controller {
 			if ( $myorder->load( Yii::$app->request->post() ) ) {
 				$myorder->qty = $count;
 				$myorder->sum = $total;
+
 				if ( $myorder->save( false ) ) {
+					$product=Products::find()->all();
+					foreach ($product as $prod){
+						$prod->quantity-=$myorder['qty'];
+						$prod->save();
+                    }
+
+//		if (!empty($myorder)){
+//
+//		    $ordItem=OrderItems::find()->all();
+//		    foreach ($ordItem as $ordit){
+//			    var_dump($ordit['']);
+//            }
+//		    $del = Products::find()->with( 'order_items' )->where( [ 'id' => 'id' ] )->asArray()->all();
+//
+//
+////                foreach ($product as $prod){
+////	                foreach ($mycart as $my){
+////		        $prod->quantity-=$my['quantity'];
+////			    $prod->available_stock-=$my['quantity'];
+////			    $prod->save();
+////            }
+////			}
+//
+//
+//		}
 				    $this->saveOrederItems($mycart,$myorder->id);
-					Yii::$app->session->setFlash( 'success', 'Պատվերն ընդունված է' );
+//					\Yii::$app->mailer->compose('order',['cart' => $mycart])
+//					                  ->setFrom(['arm_phone@mail.ru' => 'Armphone.am'])
+//					                  ->setTo($myorder->email)
+//					                  ->setSubject('Mobile')
+//					                  ->send();
+
+				    Yii::$app->session->setFlash( 'success', 'Պատվերն ընդունված է' );
+					foreach ($get_cart as $carts){
+					   $delId=$carts['user_id'];
+                        Cart::deleteAll(['user_id' => $delId]);
+                    }
 
 					return $this->refresh();
 				} else {
@@ -58,7 +94,7 @@ class CartController extends Controller {
 	protected function saveOrederItems($items, $order_id)
 	{
 		foreach ($items as $id => $item) {
-//		    var_dump($item);
+
 			$order_items = new OrderItems();
 			$order_items->order_id = $order_id;
 			$order_items->product_id = $item['product_id'];
@@ -73,11 +109,6 @@ class CartController extends Controller {
 		$id      = \Yii::$app->request->get( 'add_product' );
 		$product = Products::findOne( $id );
 		$qty     = \Yii::$app->request->get( 'quantity' );
-//		if (!empty($qty)){
-//			$product->available_stock -=$qty;
-//			$product->quantity -=$qty;
-//			$product->save();
-//		}
 		if ( ! empty( $id ) && ! empty( $qty ) ) {
 			$user        = Yii::$app->user->id;
 			$cartProduct = Products::findOne( $id );
