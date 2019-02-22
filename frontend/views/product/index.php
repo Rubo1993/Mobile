@@ -12,8 +12,6 @@
         </div>
     </div>
 </div>
-<!-- /.page-header-->
-<!-- product-list -->
 <div class="content">
     <div class="container">
         <div class="row">
@@ -43,8 +41,7 @@
 									foreach ( $brand as $br ) {
 										?>
 
-                                        <li class="categoryList"><a
-                                                    href='<?= \yii\helpers\Url::to( [ '/' ] ) . 'product/' . $slug . '/' . $br['slug'] ?>'><?= $br['title'] ?></a>
+                                        <li class="categoryList"><a href='<?= \yii\helpers\Url::to( [ '/' ] ) . 'product/' . $slug . '/' . $br['slug'] ?>'><?= $br['title'] ?></a>
                                         </li>
 
 										<?php
@@ -69,15 +66,16 @@
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb30">
                                 <div class="product-block animated bounceInDown">
                                     <div class="product-img productMyClass ">
+                                        <a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug']?>">
+                                        <img src="<?= \yii\helpers\Url::to( [ '/' ] ) . 'images/uploads/products/' . $product['image'] ?>" alt="">
+                                            <a/>
+                                    </div>
 
-                                        <img src="<?= \yii\helpers\Url::to( [ '/' ] ) . 'images/uploads/products/' . $product['image'] ?>" alt=""></div>
                                     <div class="product-content">
                                         <h5>
-                                            <a href="<?= \yii\helpers\Url::to( [ '/' ] ) . 'product/single/' . $product['slug'] ?>"
-                                               class="product-title"><?= $product['title'] ?></a></h5>
+                                            <a href="<?= \yii\helpers\Url::to( [ '/' ] ) . 'product/single/' . $product['slug'] ?>" class="product-title"><?= $product['title'] ?></a></h5>
 
-                                        <div class="product-meta"><a href="#"
-                                                                     class="product-price"><?= $product['sale_prise'] ?> </a>
+                                        <div class="product-meta"><a href="#" class="product-price"><?= $product['sale_prise'] ?> </a>
                                             <a href="#" class="discounted-price">
 												<?= $product['price'] ?>
                                             </a>
@@ -94,28 +92,10 @@
 						}
 					}
 					?>
-
-                    <!-- /.product -->
-                    <!-- product -->
-
-                    <!-- /.product -->
                 </div>
                 <div class="row">
-                    <!-- pagination start -->
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-
-<!--                        <div class="paginationDIv">-->
-<!--							--><?php
-//							echo \yii\widgets\LinkPager::widget(
-//								[
-//									'pagination' => $pagination,
-//								]);
-//							?>
-<!---->
-<!--                        </div>-->
                     </div>
-                    <!-- pagination close -->
                 </div>
             </div>
         </div>

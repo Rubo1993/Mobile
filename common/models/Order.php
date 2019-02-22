@@ -4,6 +4,7 @@ namespace common\models;
 use yii\db\ActiveRecord;
 use Yii;
 
+
 /**
  * This is the model class for table "order".
  *
@@ -30,7 +31,8 @@ class Order extends ActiveRecord
         return 'order';
     }
 
-    /**
+
+	/**
      * {@inheritdoc}
      */
     public function rules()

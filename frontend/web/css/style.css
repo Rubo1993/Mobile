@@ -795,6 +795,13 @@ border-radius: 50%;
     width: 200px;
     height:280px;!important;
 }
+.red_empyt{
+    color: red;
+}
+.orderdForm{
+    width: 80%;
+    padding:20px 0;
+}
 #empty_cart{
     color:red;
 
