@@ -19,7 +19,7 @@
                 <!-- sidenav-section -->
                 <div id='cssmenu' class="animated bounceln">
                     <ul>
-                        <li class='has-sub'><a href='#'>CATEGORY</a>
+                        <li class='has-sub'><a href='#'>Տեսականի</a>
                             <ul>
 								<?php
 								if ( ! empty( $category ) ) {
@@ -34,7 +34,7 @@
 								?>
                             </ul>
                         </li>
-                        <li class='has-sub'><a href='#'>Brand</a>
+                        <li class='has-sub'><a href='#'>Ապրանքանիշերը</a>
                             <ul>
 								<?php
 								if ( ! empty( $brand ) ) {

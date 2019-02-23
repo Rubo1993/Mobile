@@ -116,8 +116,8 @@ AppAsset::register( $this );
 <?= $content ?>
 
 <div class="bg-default pdt40 pdb40">
-    <div class="container">
-        <div class="row">
+<!--    <div class="container">-->
+        <div class="row myfoother">
 
             <!-- features -->
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -128,8 +128,8 @@ AppAsset::register( $this );
                     <div class="feature-content">
 
 
-                        <h3 class="text-white">Safe Payment</h3>
-                        <p>Praesent orci dolor, pretium vitae hendrerit convallisutes orcgravida bibendum.</p>
+                        <h3 class="text-white margin_none">+374 95 15 25 35</h3>
+                        <p>Սպասարկման ծառայության աշխատանքային ժամեր են՝ 10:00 - 21:00</p>
                     </div>
                 </div>
             </div>
@@ -141,8 +141,8 @@ AppAsset::register( $this );
                         <i class="fa fa-users"></i>
                     </div>
                     <div class="feature-content">
-                        <h3 class="text-white">24/7 Help Center</h3>
-                        <p>Aliquam molestie urnased one pharetra vestibulum Interdum et malesuada fames.</p>
+                        <h3 class="text-white margin_none">Առաքում</h3>
+                        <p>1 աշխատանքային օրվա ընթացքում 10:00 - 20:00</p>
                     </div>
                 </div>
             </div>
@@ -154,27 +154,27 @@ AppAsset::register( $this );
                         <i class="fa fa-rotate-left "></i>
                     </div>
                     <div class="feature-content">
-                        <h3 class="text-white">Free &amp; Easy Return</h3>
-                        <p>Vivamus semper nisnesbla accumsan dui justo esw finibus turpis serom.</p>
+                        <h3 class="text-white margin_none">Ապառիկի պայմաններ</h3>
+                        <p>Ծանոթացեք ապառիկի պայմանների հետ այստեղ</p>
                     </div>
                 </div>
             </div>
             <!-- features -->
             <!-- features -->
-            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                <div class="feature-left">
-                    <div class="feature-outline-icon">
-                        <i class="fa fa-dollar"></i>
-                    </div>
-                    <div class="feature-content">
-                        <h3 class="text-white">Great Value</h3>
-                        <p>Morbi necmi turpiulm tristiq ueipsm inodiopharetr amal esuat erdumetalesuada.</p>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">-->
+<!--                <div class="feature-left">-->
+<!--                    <div class="feature-outline-icon">-->
+<!--                        <i class="fa fa-dollar"></i>-->
+<!--                    </div>-->
+<!--                    <div class="feature-content">-->
+<!--                        <h3 class="text-white">Great Value</h3>-->
+<!--                        <p>Morbi necmi turpiulm tristiq ueipsm inodiopharetr amal esuat erdumetalesuada.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <!-- features -->
         </div>
-    </div>
+<!--    </div>-->
 </div>
 <!-- /.features -->
 <!-- footer -->
@@ -185,47 +185,62 @@ AppAsset::register( $this );
             <!-- footer-contact links -->
             <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="footer-widget">
-                    <h3 class="footer-title footer_my_title">Contact Info </h3>
+                    <h3 class="footer-title footer_my_title">Կոնտակտներ </h3>
                     <div class="contact-info">
                         <span class="contact-icon"><i class="fa fa-map-marker"></i></span>
-                        <span class="contact-text">1683 Pickens Way Sherman,<br>
-Bird Street Albuquerque
-Us 75090</span>
+                        <span class="contact-text">Ք․ Գյումրի, Վարդանանց <br>հրպ 2 շենք
+
+</span>
                     </div>
                     <div class="contact-info">
                         <span class="contact-icon"><i class="fa fa-phone"></i></span>
-                        <span class="contact-text">+180-123-4567 / 89</span>
+                        <span class="contact-text">+374 95 15 25 35</span>
                     </div>
                     <div class="contact-info">
                         <span class="contact-icon"><i class="fa fa-envelope"></i></span>
-                        <span class="contact-text">info@demo.com</span>
+                        <span class="contact-text">arm_phone@mail.ru</span>
                     </div>
                 </div>
             </div>
             <!-- /.footer-useful-links -->
             <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="footer-widget">
-                    <h3 class="footer-title">Quick Links</h3>
-                    <ul class="arrow">
-                        <li><a href="#">Home </a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Mobiles</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
+                    <h3 class="footer-title">Արագ հղումներ</h3>
+                    <div id="foother_menu">
+		                <?php
+		                $menuItems = [
+			                [ 'label' => 'Գլխավոր', 'url' => [ '@web/' ] ],
+			                [ 'label' => 'Հեռախոսներ', 'url' => [ '@web/product/telephone' ] ],
+			                [ 'label' => 'Ակսեսուարներ', 'url' => [ '@web/product/accessories' ] ],
+			                [ 'label' => 'Բուֆերներ', 'url' => [ '@web/product/buffers' ] ],
+			                [ 'label' => 'Նոութբուքեր', 'url' => [ '@web/product/notebooke' ] ],
+
+		                ];
+		                echo Nav::widget( [
+			                'options' => [ 'class' => '' ],
+			                'items'   => $menuItems,
+		                ] );
+		                ?>
+
+                    </div>
                 </div>
             </div>
             <!-- /.footer-useful-links -->
             <!-- footer-policy-list-links -->
             <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="footer-widget">
-                    <h3 class="footer-title">Policy Info</h3>
+                    <h3 class="footer-title">Վճարումներ</h3>
                     <ul class="arrow">
-                        <li><a href="#">Payments</a></li>
-                        <li><a href="#">Cancellation &amp; Returns</a></li>
-                        <li><a href="#">Shipping and Delivery</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">T &amp; C</a></li>
+                        <li><a href="#">Չեղյալ եւ վերադարձը</a></li>
+                        <li><a href="#">Առաքում եւ առաքում</a></li>
+                        <div class="paymn">
+<!--                            <ul>-->
+                                <li><a href="#"><i class="fa fa-cc-paypal fa-2x"></i></a></li>
+                                <li><a href="#"><i class="fa fa-cc-mastercard  fa-2x"></i></a></li>
+                                <li><a href="#"><i class="fa fa-cc-visa fa-2x"></i></a></li>
+
+<!--                            </ul>-->
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -233,7 +248,7 @@ Us 75090</span>
             <!-- footer-social links -->
             <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div class="footer-widget">
-                    <h3 class="footer-title">Connect With Us</h3>
+                    <h3 class="footer-title">Միացեք մեզ</h3>
                     <div class="ft-social">
                         <span><a href="#" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a></span>
                         <span><a href="#" class="btn-social btn-twitter"><i class="fa fa-twitter"></i></a></span>
@@ -252,14 +267,7 @@ Us 75090</span>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="payment-method alignleft">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-cc-paypal fa-2x"></i></a></li>
-                            <li><a href="#"><i class="fa fa-cc-mastercard  fa-2x"></i></a></li>
-                            <li><a href="#"><i class="fa fa-cc-visa fa-2x"></i></a></li>
-                            <li><a href="#"><i class="fa fa-cc-discover fa-2x"></i></a></li>
-                        </ul>
-                    </div>
+
                     <p class="alignright">Copyright © All Rights Reserved 2020 Template Design by
                         <a href="https://easetemplate.com/" target="_blank" class="copyrightlink">EaseTemplate</a></p>
                 </div>

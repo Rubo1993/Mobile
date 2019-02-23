@@ -5,6 +5,7 @@ use yii\db\ActiveRecord;
 use Yii;
 
 
+
 /**
  * This is the model class for table "order".
  *
@@ -30,7 +31,9 @@ class Order extends ActiveRecord
     {
         return 'order';
     }
-
+public function getOrderItems(){
+    	return $this->hasMany(OrderItems::tableName(),['order_id'=>'id']);
+}
 
 	/**
      * {@inheritdoc}
@@ -54,18 +57,24 @@ class Order extends ActiveRecord
     public function attributeLabels()
     {
         return [
+        	'id'=>'Պատվեր №',
             'name' => 'Անուն',
             'email' => 'Էլ․ հասցե',
             'phone' => 'Հ․ համար',
             'address' => 'Հասցե',
+	        'created_at'=>'Հաստատվել է',
+	        'updated_at'=>'Թարմացվել է',
+            'qty'=>'Քանակ',
+            'sum'=>'Գումար',
+	        'status'=>'Կարգավիճակը',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getId0()
-    {
-        return $this->hasOne(OrderItems::className(), ['order_id' => 'id']);
-    }
+//    public function getId0()
+//    {
+//        return $this->hasOne(OrderItems::className(), ['order_id' => 'id']);
+//    }
 }

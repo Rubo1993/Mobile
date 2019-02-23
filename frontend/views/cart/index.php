@@ -23,6 +23,7 @@ use yii\widgets\ActiveForm;
 <!-- /.page-header-->
 <!-- cart-section -->
 <div class="space-medium">
+	<?php if (!empty($get_cart)){?>
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
@@ -34,7 +35,7 @@ use yii\widgets\ActiveForm;
 					<div class="box-body">
 						<div class="table-responsive">
 							<div class="cart">
-								<?php if (!empty($get_cart)){?>
+
 								<table class="table table-bordered ">
 									<thead>
 									<tr>
@@ -98,7 +99,7 @@ use yii\widgets\ActiveForm;
                                     <?php
                                     }else{
                                         ?>
-                                        <h1 class="red_empyt">Զամբյուղը դատարկ է</h1>
+                                        <h1 class="red_empyt animated bounceInRight zoomIn">Զամբյուղը դատարկ է</h1>
                                             <?php
                                     }
                                     ?>
@@ -109,22 +110,32 @@ use yii\widgets\ActiveForm;
 						</div>
 					</div>
 				</div>
-				<?php if ($get_cart){?>
-                <div class="orderdForm">
-					<?php
-					$username = strtoupper(Yii::$app->user->identity->username);
-					$email = Yii::$app->user->identity->email;
+                <div id="checkouts">
+				<?php if ($get_cart) { ?>
+                    <div class="orderdForm">
+						<?php
+						$username = strtoupper( Yii::$app->user->identity->username );
+						$email    = Yii::$app->user->identity->email;
 
-					?>
-					<?php $form=ActiveForm::begin()?>
-					<?=$form->field($myorder,'name')->textInput(['readonly' => true, 'value' => $username]) ?>
-					<?=$form->field($myorder,'email')->input('email', ['readonly' => true, 'value' => $email]) ?>
-					<?=$form->field($myorder,'phone')->textInput(['type'=>'number'])?>
-					<?=$form->field($myorder,'address')->textInput() ?>
-					<?=Html::submitButton('Պատվիրել',['class'=>'btn btn-success'])?>
-					<?php $form=ActiveForm::end()?>
+						?>
+						<?php $form = ActiveForm::begin() ?>
+						<?= $form->field( $myorder, 'name' )->textInput( [
+							'readonly' => true,
+							'value'    => $username
+						] ) ?>
+						<?= $form->field( $myorder, 'email' )->input( 'email', [
+							'readonly' => true,
+							'value'    => $email
+						] ) ?>
+						<?= $form->field( $myorder, 'phone' )->textInput( [ 'type' => 'number' ] ) ?>
+						<?= $form->field( $myorder, 'address' )->textInput() ?>
+						<?= Html::submitButton( 'Պատվիրել', [ 'class' => 'btn btn-success' ] ) ?>
+						<?php $form = ActiveForm::end() ?>
+                    </div>
+
+
                 </div>
-				<a href="#" class="btn-link"><i class="fa fa-angle-left"></i> back to shopping</a>
+				<a href="<?=\yii\helpers\Url::to(['/']) .'product'?>" class="btn-link"><i class="fa fa-angle-left"></i>Վերադարձ դեպի գնումներ</a>
 			</div>
 
 			<!-- cart-total -->
@@ -160,7 +171,7 @@ use yii\widgets\ActiveForm;
 									</tbody>
 								</table>
 							</div>
-							<button class="btn btn-primary btn-block">Proceed To Checkout</button>
+							<a href="#checkouts" class="btn btn-primary btn-block">Պատվիրել</a>
 						</div>
 					</div>
 				</div>
@@ -168,13 +179,13 @@ use yii\widgets\ActiveForm;
 				<!-- coupon-section -->
 				<div class="box mb30">
 					<div class="box-head">
-						<h3 class="head-title">Coupons &amp; Offers</h3>
+						<h3 class="head-title">Զեղչի կտրոն</h3>
 					</div>
 					<div class="box-body">
 						<form>
 							<div class="coupon-form">
-								<input type="text" name="coupon_code" class="form-control" id="coupon_code" value="" placeholder="Coupon code">
-								<input type="submit" class="btn btn-primary btn-block" name="apply_coupon" value="Apply coupon">
+								<input type="text" name="coupon_code" class="form-control" id="coupon_code" value="" placeholder="Կտրոնի համարանիշ">
+								<input type="submit" class="btn btn-primary btn-block" name="apply_coupon" value="Կիրառեք կտրոնը">
 							</div>
 						</form>
 
@@ -191,5 +202,6 @@ use yii\widgets\ActiveForm;
 
 	</div>
 </div>
+
 <hr/>
 

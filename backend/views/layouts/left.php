@@ -36,6 +36,7 @@
                     ['label' => 'Categories', 'icon' => 'file-code-o', 'url' => ['/categories']],
                     ['label' => 'Brands', 'icon' => 'dashboard', 'url' => ['/brands']],
 	                ['label' => 'Sliders', 'icon' => 'image', 'url' => ['/slider']],
+	                ['label' => 'Orders', 'icon' => 'image', 'url' => ['/order']],
 
 	                ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [

@@ -18,10 +18,13 @@ class CartController extends Controller {
 
 			$get_cart = Cart::find()->with( 'product' )->where( [ 'user_id' => $user ] )->asArray()->all();
 
-			$total    = 0;
-			$count    = 0;
-			$myorder  = new Order();
-			$mycart   = Cart::find()->with('product')->where(['user_id'=>$user])->asArray()->all();
+//			Products::updateAll( [
+//				'quantity' => new \yii\db\Expression( '@a := @a - 1' ),
+//			], [ [ 'in', 'id', [1, 5] ] ] );
+			$total   = 0;
+			$count   = 0;
+			$myorder = new Order();
+			$mycart  = Cart::find()->with( 'product' )->where( [ 'user_id' => $user ] )->asArray()->all();
 			if ( ! empty( $get_cart ) ) {
 				foreach ( $get_cart as $c ) {
 					if ( ! empty( $c['product']['sale_prise'] ) ) {
@@ -39,23 +42,27 @@ class CartController extends Controller {
 				$myorder->sum = $total;
 
 				if ( $myorder->save( false ) ) {
-				    $this->saveOrederItems($mycart,$myorder->id);
-					\Yii::$app->mailer->compose('order',['mycart' => $mycart])
-					                  ->setFrom(['phoneshop2019@mail.ru' => 'Armphone.am'])
-					                  ->setTo($myorder->email)
-					                  ->setSubject('Phone')
-					                  ->send();
-				    Yii::$app->session->setFlash( 'success', 'Պատվերն ընդունված է' );
-					foreach ($get_cart as $carts){
-					   $delId=$carts['user_id'];
-                        Cart::deleteAll(['user_id' => $delId]);
-                    }
+
+					$this->saveOrederItems( $mycart, $myorder->id );
+//
+//					\Yii::$app->mailer->compose( 'order', [ 'mycart' => $mycart ] )
+//					                  ->setFrom( [ 'arm_phone@mail.ru' => 'Armphone.am' ] )
+//					                  ->setTo( $myorder->email )
+//					                  ->setSubject( 'Phone' )
+//					                  ->send();
+					Yii::$app->session->setFlash( 'success', 'Պատվերն ընդունված է' );
+					foreach ( $get_cart as $carts ) {
+						$delId = $carts['user_id'];
+						Cart::deleteAll( [ 'user_id' => $delId ] );
+					}
+
 					return $this->refresh();
 				} else {
 					Yii::$app->session->setFlash( 'error', 'Ошибка оформления заказа ' );
 				}
 			}
 		}
+
 		return $this->render( 'index', [
 			'myorder'  => $myorder,
 			'mycart'   => $mycart,
@@ -65,20 +72,20 @@ class CartController extends Controller {
 		] );
 	}
 
-	protected function saveOrederItems($items, $order_id)
-	{
-		foreach ($items as $id => $item) {
+	protected function saveOrederItems( $items, $order_id ) {
+		foreach ( $items as $id => $item ) {
 
-			$order_items = new OrderItems();
-			$order_items->order_id = $order_id;
+			$order_items             = new OrderItems();
+			$order_items->order_id   = $order_id;
 			$order_items->product_id = $item['product_id'];
-			$order_items->name = $item['product']['title'];
-			$order_items->price = $item['product']['price'];
-			$order_items->qty_item = $item['quantity'];
-			$order_items->sum_item = $item['product']['price'] * $item['quantity'];
+			$order_items->name       = $item['product']['title'];
+			$order_items->price      = $item['product']['price'];
+			$order_items->qty_item   = $item['quantity'];
+			$order_items->sum_item   = $item['product']['price'] * $item['quantity'];
 			$order_items->save();
 		}
 	}
+
 	public function actionAdd() {
 		$id      = \Yii::$app->request->get( 'add_product' );
 		$product = Products::findOne( $id );

@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Categories */
+/* @var $model common\models\Orderitems */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Orderitems', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="categories-view">
+<div class="orderitems-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,18 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title',
-            'description:ntext',
-	        [
-		        'attribute' => 'image',
-		        'format' => 'raw',
-		        'filter'=> '',
-		        'value' => function($model){
-			        return Html::img(\yii\helpers\Url::to('@image/products/'.$model->image),['width' => '70px','height' => '100px','class'=>'img']);
-		        }
-	        ] ,
-            'slug',
-            'info_image',
+            'order_id',
+            'product_id',
+            'name',
+            'price',
+            'qty_item',
+            'sum_item',
         ],
     ]) ?>
 

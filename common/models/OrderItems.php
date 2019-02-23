@@ -26,6 +26,9 @@ class OrderItems extends \yii\db\ActiveRecord
     {
         return 'order_items';
     }
+	public function getOrder(){
+		return $this->hasMany(Order::className(),['id'=>'order_id']);
+	}
 
     /**
      * {@inheritdoc}
@@ -59,8 +62,5 @@ class OrderItems extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getOrder()
-    {
-        return $this->hasOne(Order::className(), ['id' => 'order_id']);
-    }
+
 }

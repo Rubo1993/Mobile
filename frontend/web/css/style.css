@@ -101,7 +101,7 @@ label { }
 .textarea.form-control { }
 .required { }
 .form-group { margin-bottom: 5px; }
-.form-control { border-radius: 3px; color: #656869; font-size: 13px; font-weight: 400; width: 100%; height: 52px; padding: 12px 16px; line-height: 1.42857143; border: 2px solid #e8ecf0; background-color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; -webkit-box-shadow: inset 000 rgba(0, 0, 0, .075); box-shadow: inset 000 rgba(0, 0, 0, .075); }
+.form-control { border-radius: 3px; color: #656869; font-size: 13px; font-weight: 400; width: 100%; height: 52px; padding: 12px 16px; line-height: 1.42857143; border: 2px solid #e8ecf0; background-color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, .075); }
 .form-control:focus { border-color: #a5a8ab; outline: 0; -webkit-box-shadow: none; box-shadow: none; }
 .input-group { position: relative; display: table; border-collapse: separate; }
 input[type=checkbox], input[type=radio] { margin: 8px 0 0; margin-top: 1px\9; line-height: normal; }
@@ -152,7 +152,7 @@ a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .wp-caption p.wp-caption-text { font-size: 11px; line-height: 17px; margin: 0; padding: 0 4px 5px; }
 
 /*-----------------------------------
-    3. Buttons 
+    3. Buttons
 -----------------------------------*/
 .btn { font-family: 'Roboto Condensed', sans-serif; font-size: 15px; text-transform: uppercase; font-weight: 700; padding: 14px 26px; border-radius: 4px; line-height: 2; letter-spacing: 2px; border: transparent; -webkit-transition: all 0.3s; -moz-transition: all 0.3s; transition: all 0.3s; word-wrap: break-word; white-space: normal !important; }
 .btn-primary { background-color: #fb730f; color: #fff; }
@@ -171,10 +171,10 @@ a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .btn-link:hover { color: #fb730f; text-decoration: none; }
 
 /*-----------------------------------
-    4. General / Elements 
+    4. General / Elements
 -----------------------------------*/
 
-/*----------------------- 
+/*-----------------------
     4.1 Section space :
 -------------------------*/
 
@@ -258,7 +258,7 @@ a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .pdtb40 { padding-bottom: 40px; padding-top: 40px; }
 
 /*--------------------------------
-4.4 Background & Block color 
+4.4 Background & Block color
 ----------------------------------*/
 .bg-light { background-color: #f8f9fa; }
 .bg-primary { background-color: #1aa644; color: #fff; }
@@ -280,7 +280,7 @@ a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .divider-line { border-bottom: 1px solid #e8ecf0; margin-top: 30px; margin-bottom: 30px; }
 
 /*--------------------------------
-4.5 Features Block 
+4.5 Features Block
 ----------------------------------*/
 .features-section { }
 .feature { text-align: center;  }
@@ -320,7 +320,7 @@ a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .arrow li:before { font-family: "FontAwesome"; display: inline-block; position: absolute; left: 0; font-size: 16px; color: #8e9091; content: '\f105'; }
 
 /*--------------------------------
-4.7 Call to actions 
+4.7 Call to actions
 ----------------------------------*/
 .cta-block { }
 .cta-icon { }
@@ -337,7 +337,7 @@ a img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .widget-cta-title { }
 
 /*--------------------------------
- 4.8 Image Hover Effect 
+ 4.8 Image Hover Effect
 ----------------------------------*/
 /*prob*/
 /*width: auto; max-width: 100%; height: auto;*/
@@ -356,15 +356,15 @@ img {  margin: 0; padding: 0; border: none; line-height: normal; vertical-align:
 .imghover:hover::after { color: #fff; }
 
 /*--------------------------------
-4.9 Icon 
+4.9 Icon
 ----------------------------------*/
 
 /*--------------------------------
-5 Header / Navigations 
+5 Header / Navigations
 ----------------------------------*/
 
 /*--------------------
-    5.1 Header Regular 
+    5.1 Header Regular
 ----------------------*/
 
 .header-wrapper {padding-bottom: 20px; z-index: 9; position: relative; background-color: #fff; }
@@ -472,12 +472,12 @@ img {  margin: 0; padding: 0; border: none; line-height: normal; vertical-align:
 .page-caption { }
 .page-title { }
 .page-breadcrumb { color: #a1a8ab; float: right; }
-.page-breadcrumb .breadcrumb { background-color: transparent; margin-bottom: 0; font-size: 12px; font-weight: 700; border: none; letter-spacing: 0.5px; text-transform: uppercase; color: #a1a8ab; padding: 16px 000; }
+.page-breadcrumb .breadcrumb { background-color: transparent; margin-bottom: 0; font-size: 12px; font-weight: 700; border: none; letter-spacing: 0.5px; text-transform: uppercase; color: #a1a8ab; padding: 16px 0 0 0; }
 .breadcrumb>li+li:before { padding: 0 8px; color: #a1a8ab; content: "/"; font-family: 'FontAwesome' }
 .breadcrumb>li>a { color: #fb730f; }
 
 /*-----------------------------------
-    6. Slider 
+    6. Slider
 -------------------------------------*/
 .slider { margin-bottom: -40px; }
 .slider-img { position: relative; width: 100%; height: 520px; }
@@ -495,7 +495,7 @@ img {  margin: 0; padding: 0; border: none; line-height: normal; vertical-align:
 .brand-img { height: 40px; width: 40px; margin-bottom: 15px; }
 
 /*-----------------------------------
-7. Footer 
+7. Footer
 -------------------------------------*/
 .footer { background-color: #fff; padding-top: 50px; color: #848687; font-weight: 400; }
 .footer-title { margin: 30px 0 30px 0; color: #1c1e1e; letter-spacing:0; font-size: 18px; font-weight: 400; }
@@ -541,18 +541,18 @@ img {  margin: 0; padding: 0; border: none; line-height: normal; vertical-align:
 /*--- easetemplate copyright link --*/
 
 /*-----------------------------------
-9. Pages 
+9. Pages
 -------------------------------------*/
 
 /*-------------------------
- 9.1 Product List 
+ 9.1 Product List
 ---------------------------*/
 
 .showcase-block { margin-bottom: 30px; height: 320px; background-color: #e8eaec; padding: 30px 30px 0 30px; text-align: center; }
 .showcase-img { padding-top: 18px; }
 .display-logo { margin-bottom: 30px; }
-.showcase-block:hover { background-color: #fff; -webkit-box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.75); -moz-box-shadow:0 4px 14px 0 rgba(0, 0, 0, 0.10); box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.10); }
-.showcase-block.active { background-color: #fff; -webkit-box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.75); -moz-box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.10); box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.10); }
+.showcase-block:hover { background-color: #fff; -webkit-box-shadow:rgba(0, 0, 0, 0.75); -moz-box-shadow:rgba(0, 0, 0, 0.10); box-shadow:rgba(0, 0, 0, 0.10); }
+.showcase-block.active { background-color: #fff; -webkit-box-shadow:rgba(0, 0, 0, 0.75); -moz-box-shadow:rgba(0, 0, 0, 0.10); box-shadow:rgba(0, 0, 0, 0.10); }
 .product-block { border: 1px solid #f3f5f7;margin: 10px 0; text-align: center; background-color: #fff; min-height: 349px; }
 
 /*prob*/
@@ -594,8 +594,8 @@ img {  margin: 0; padding: 0; border: none; line-height: normal; vertical-align:
 .btn-cart { background-color: #0cafe5; color: #fff;  }
 .btn-like:hover {  background-color: #ed6908; color: #fff; }
 .btn-cart:hover { background-color: #0e9bc9; color: #fff;}
-.product-block:hover { background-color: #fff; -webkit-box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.75); -moz-box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.10); box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.10); cursor: pointer; border: 1px solid #e6eaed; }
-.product-block:active { background-color: #fff; -webkit-box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.75); -moz-box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.10); box-shadow:0 4px 14px0 rgba(0, 0, 0, 0.10); cursor: pointer; border: 1px solid #e6eaed; }
+.product-block:hover { background-color: #fff; -webkit-box-shadow:rgba(0, 0, 0, 0.75);cursor: pointer; border: 1px solid #e6eaed; }
+.product-block:active { background-color: #fff;box-shadow:rgba(0, 0, 0, 0.10); cursor: pointer; border: 1px solid #e6eaed; }
 .product-carousel .owl-carousel .owl-item img { width: inherit; display: inline-block; }
 .product-carousel .owl-theme .owl-nav { line-height: 1; text-align: center; -webkit-tap-highlight-color: transparent; }
 .product-carousel .owl-theme .owl-nav .owl-prev { position: absolute; top: 40%; left: -60px; color: #a9acae; font-size: 60px; margin: 12px; padding:0; background: transparent; display: inline-block; cursor: pointer; border-radius: 2px; height:0; width:0; }
@@ -738,7 +738,7 @@ h5 { font-size: 14px; color: #1c1e1e; text-transform: uppercase; line-height: 1;
 .checkout-form .form-control { background-color: #f4f7f9; margin-bottom: 20px; }
 
 /*--------------------------
-9.6  404 error 
+9.6  404 error
 ---------------------------*/
 .error-wrapper { background-color: #fff; padding: 60px 40px; text-align: center; }
 
@@ -802,10 +802,30 @@ border-radius: 50%;
     width: 80%;
     padding:20px 0;
 }
+.row {
+  width: 100%;
+    margin:auto;
+
+
+}
+.myfoother{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*/credit*/
 /*timer css*/
-
-
 /*/timer css*/
+
+.margin_none{
+    margin:0;
+}
+#foother_menu ul li a:hover{
+   background-color: #f3f5f7;
+}
+.paymn{
+    display: flex;
+}
 #empty_cart{
     color:red;
 
@@ -883,7 +903,7 @@ border-radius: 50%;
 .sing-form .form-control { background-color: #f4f7f9; }
 
 /*--------------------------------
-Login Form 
+Login Form
 ----------------------------------*/
 .login-input { position: relative; margin-bottom: -21px; }
 .login-input .form-control { background-color: #f4f7f9; padding-left: 35px; }
@@ -1039,6 +1059,10 @@ Class----------------
 
 /* Small Devices, Tablets */
 @media only screen and (max-width:768px) {
+    .row{
+        flex-direction: column;
+    }
+    .footer {flex-wrap: wrap}
 .search-bg { top: 5px; }
 .account-section { line-height: 1.8; }
 .content { padding-bottom: 30px; padding-top: 30px; }
