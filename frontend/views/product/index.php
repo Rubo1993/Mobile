@@ -75,16 +75,16 @@
                                         <h5>
                                             <a href="<?= \yii\helpers\Url::to( [ '/' ] ) . 'product/single/' . $product['slug'] ?>" class="product-title"><?= $product['title'] ?></a></h5>
 
-                                        <div class="product-meta"><a href="#" class="product-price"><?= $product['sale_prise'] ?> </a>
+                                        <div class="product-meta"><a href="#" class="product-price"><?= $product['sale_prise'] ?> Դ</a>
                                             <a href="#" class="discounted-price">
-												<?= $product['price'] ?>
+												<?= $product['price'] ?>Դ
                                             </a>
-                                            <span class="offer-price">20%off</span>
+
                                         </div>
-                                        <div class="shopping-btn">
-                                            <a href="#" class="product-btn btn-like"><i class="fa fa-heart"></i></a>
-                                            <a href="#" class="product-btn btn-cart"><i class="fa fa-shopping-cart"></i></a>
-                                        </div>
+<!--                                        <div class="shopping-btn">-->
+<!--                                            <a href="#" class="product-btn btn-like"><i class="fa fa-heart"></i></a>-->
+<!--                                            <a href="#" class="product-btn btn-cart"><i class="fa fa-shopping-cart"></i></a>-->
+<!--                                        </div>-->
                                     </div>
                                 </div>
                             </div>

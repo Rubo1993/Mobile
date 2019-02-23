@@ -17,6 +17,7 @@ class CartController extends Controller {
 		if ( ! empty( $user ) ) {
 
 			$get_cart = Cart::find()->with( 'product' )->where( [ 'user_id' => $user ] )->asArray()->all();
+
 			$total    = 0;
 			$count    = 0;
 			$myorder  = new Order();
@@ -38,44 +39,17 @@ class CartController extends Controller {
 				$myorder->sum = $total;
 
 				if ( $myorder->save( false ) ) {
-					$product=Products::find()->all();
-					foreach ($product as $prod){
-						$prod->quantity-=$myorder['qty'];
-						$prod->save();
-                    }
-
-//		if (!empty($myorder)){
-//
-//		    $ordItem=OrderItems::find()->all();
-//		    foreach ($ordItem as $ordit){
-//			    var_dump($ordit['']);
-//            }
-//		    $del = Products::find()->with( 'order_items' )->where( [ 'id' => 'id' ] )->asArray()->all();
-//
-//
-////                foreach ($product as $prod){
-////	                foreach ($mycart as $my){
-////		        $prod->quantity-=$my['quantity'];
-////			    $prod->available_stock-=$my['quantity'];
-////			    $prod->save();
-////            }
-////			}
-//
-//
-//		}
 				    $this->saveOrederItems($mycart,$myorder->id);
-//					\Yii::$app->mailer->compose('order',['cart' => $mycart])
-//					                  ->setFrom(['arm_phone@mail.ru' => 'Armphone.am'])
-//					                  ->setTo($myorder->email)
-//					                  ->setSubject('Mobile')
-//					                  ->send();
-
+					\Yii::$app->mailer->compose('order',['mycart' => $mycart])
+					                  ->setFrom(['phoneshop2019@mail.ru' => 'Armphone.am'])
+					                  ->setTo($myorder->email)
+					                  ->setSubject('Phone')
+					                  ->send();
 				    Yii::$app->session->setFlash( 'success', 'Պատվերն ընդունված է' );
 					foreach ($get_cart as $carts){
 					   $delId=$carts['user_id'];
                         Cart::deleteAll(['user_id' => $delId]);
                     }
-
 					return $this->refresh();
 				} else {
 					Yii::$app->session->setFlash( 'error', 'Ошибка оформления заказа ' );

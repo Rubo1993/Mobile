@@ -4,6 +4,8 @@
             <div class="item">
                 <div class="slider-img">
                     <img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/slider/'.$slid['image']?>" alt=""></div>
+<!--              timer-->
+<!--                /timer-->
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 col-md-8 col-sm-6 col-xs-12">
@@ -16,6 +18,7 @@
                     </div>
                 </div>
             </div>
+
 			<?php
 		} ?>
 
@@ -32,7 +35,6 @@
 				foreach ($allProduct as $prodKey=>$product){
 					if ($prodKey==1){
 						?>
-
                         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 animated bounceInUp">
                             <div class="showcase-block active ">
                                 <div class="display-logo alignleft">
@@ -45,8 +47,6 @@
                                 </div>
                             </div>
                         </div>
-
-
 						<?php
 					}else{
 						?>
@@ -64,8 +64,6 @@
                                 </div>
                             </div>
                         </div>
-
-
 						<?php
 					}
 				}
@@ -82,9 +80,7 @@
 					'pagination' => $pagination,
 				]);
 			?>
-
         </div>
-
     </div>
 </div>
 <?php \yii\widgets\Pjax::end();?>
@@ -123,10 +119,6 @@
                                 </div>
                                 <!-- /.product -->
                             </div>
-
-
-
-
 							<?php
 						}
 					}
@@ -221,27 +213,3 @@
         </div>
     </div>
 </div>
-<!-- /.featured products -->
-<!-- cta -->
-<!--<div class="container">-->
-<!--    <div class="row">-->
-<!--        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
-<!--            <div class="newsletter-wrapper">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-lg-offset-5 col-lg-6 col-md-offset-5 col-md-6 col-sm-offset-5 col-sm-6 col-xs-12">-->
-<!--                        <div class="newsletter-form">-->
-<!--                            <h1>Subscribe To <strong>Get Discount &amp; Offers</strong></h1>-->
-<!--                            <div class="input-group">-->
-<!--                                <input type="text" class="form-control" placeholder="Search for...">-->
-<!--                                <span class="input-group-btn">-->
-<!--        <button type="button" class="btn btn-primary">Subscribe</button>-->
-<!--      </span>-->
-<!--                            </div>-->
-<!--                            <!-- /input-group -->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->

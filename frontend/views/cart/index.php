@@ -94,7 +94,7 @@ use yii\widgets\ActiveForm;
                                     <input type="hidden" name="user_id" value="<?= Yii::$app->user->id ?>">
                                     <?php if (!empty($get_cart)){
                                         ?>
-                                        <input type="submit" name="submit" value="remove_all">
+                                        <input type="submit" name="submit" value="Հեռացնել բոլորը">
                                     <?php
                                     }else{
                                         ?>
@@ -119,7 +119,7 @@ use yii\widgets\ActiveForm;
 					<?php $form=ActiveForm::begin()?>
 					<?=$form->field($myorder,'name')->textInput(['readonly' => true, 'value' => $username]) ?>
 					<?=$form->field($myorder,'email')->input('email', ['readonly' => true, 'value' => $email]) ?>
-					<?=$form->field($myorder,'phone')->input('number')?>
+					<?=$form->field($myorder,'phone')->textInput(['type'=>'number'])?>
 					<?=$form->field($myorder,'address')->textInput() ?>
 					<?=Html::submitButton('Պատվիրել',['class'=>'btn btn-success'])?>
 					<?php $form=ActiveForm::end()?>

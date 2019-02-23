@@ -376,7 +376,7 @@ img {  margin: 0; padding: 0; border: none; line-height: normal; vertical-align:
 .search-bg { position: relative; top: 8px; }
 .search-bg .form-control { height: 52px; }
 .search-bg button { background-color: transparent; border: transparent; color: #c4c9cc; font-size: 14px; position: absolute; right:0; padding: 11px 22px; bottom: 0; }
-.account-section { line-height: 63px; width: 500px;}
+.account-section { line-height: 63px; width: 366px;}
 .account-section ul { padding-left: 20px; }
 .account-section ul  { display: flex; }
 .account-section ul li a { font-weight: 400; font-size: 15px; color: #848687; padding: 0 8px; text-transform: uppercase; }
@@ -802,7 +802,10 @@ border-radius: 50%;
     width: 80%;
     padding:20px 0;
 }
+/*timer css*/
 
+
+/*/timer css*/
 #empty_cart{
     color:red;
 

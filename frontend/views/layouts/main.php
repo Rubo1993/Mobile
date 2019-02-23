@@ -51,12 +51,8 @@ AppAsset::register( $this );
 					<?php
 					if ( Yii::$app->user->id ) {
 						?>
-
-                        <!--                                <li><a href="--><?//=\yii\helpers\Url::to(['/']).'site/signup'
-						?><!--" class="title hidden-xs">Logout</a></li>-->
                         <ul>
-                            <li><a href="<?= \yii\helpers\Url::to( [ '/' ] ) . 'site/logout' ?>"
-                                   class="title hidden-xs">Ելք</a></li>
+                            <li><a href="<?= \yii\helpers\Url::to( [ '/site/logout' ] )?>" class="title hidden-xs">Ելք</a></li>
                             </li>
                             <li class="hidden-xs">|</li>
                             <li><a href="<?= \yii\helpers\Url::to( [ '/' ] ) . 'cart' ?>" class="title"><i
@@ -130,6 +126,8 @@ AppAsset::register( $this );
                         <i class="fa fa-credit-card"></i>
                     </div>
                     <div class="feature-content">
+
+
                         <h3 class="text-white">Safe Payment</h3>
                         <p>Praesent orci dolor, pretium vitae hendrerit convallisutes orcgravida bibendum.</p>
                     </div>
