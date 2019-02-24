@@ -4,6 +4,7 @@ namespace frontend\models;
 
 use Yii;
 use yii\base\Model;
+use common\models\Mail;
 
 /**
  * ContactForm is the model behind the contact form.
@@ -50,9 +51,13 @@ class ContactForm extends Model
      */
     public function sendEmail($email)
     {
+	    $model = new Mail();
+	    $model->content = $this->body;
+	    $model->email = $this->email;
+	    $model->save(false);
         return Yii::$app->mailer->compose()
             ->setTo($email)
-            ->setFrom([$this->email => $this->name])
+	        ->setFrom(['arm.phone2019@mail.ru' => $this->email])
             ->setSubject($this->subject)
             ->setTextBody($this->body)
             ->send();

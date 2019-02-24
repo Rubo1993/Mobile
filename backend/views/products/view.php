@@ -37,14 +37,37 @@ $this->params['breadcrumbs'][] = $this->title;
             'sku',
             'quantity',
             'available_stock',
-            'is_new',
-            'is_sale',
+	        [
+		        'attribute'=>'is_new',
+		        'value'=>function($data){
+			        return !$data->is_new ? '<span class="text-danger">no</span>' : '<span class="text-success">yes</span>';
+		        },
+		        'format'=>'html',
+	        ],
+	        [
+		        'attribute'=>'is_sale',
+		        'value'=>function($data){
+			        return !$data->is_sale ? '<span class="text-danger">no</span>' : '<span class="text-success">yes</span>';
+		        },
+		        'format'=>'html',
+	        ],
             'image',
             'is_feature',
-            'cat_id',
-            'brand_id',
-            'slug',
-            'best',
+//            'cat_id',
+	        [
+		        'attribute' => 'cat_id',
+		        'filter' => '',
+		        'value' => function($model){
+			        return \common\models\Categories::find()->where(['id' => $model->cat_id])->one()->title;
+		        }
+	        ] ,
+	        [
+		        'attribute'=>'best',
+		        'value'=>function($data){
+			        return !$data->best ? '<span class="text-danger">no</span>' : '<span class="text-success">yes</span>';
+		        },
+		        'format'=>'html',
+	        ],
             'reyting',
         ],
     ]) ?>

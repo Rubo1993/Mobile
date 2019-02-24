@@ -39,6 +39,13 @@ $this->params['breadcrumbs'][] = $this->title;
             //'is_feature',
             //'cat_id',
             //'brand_id',
+	        [
+		        'attribute'=>'is_new',
+		        'value'=>function($data){
+			        return !$data->is_new ?  : '<span class="text-success">NEW</span>';
+		        },
+		        'format'=>'html',
+	        ],
             'slug',
             'reyting',
 	        [
@@ -46,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
 		        'format' => 'raw',
 		        'filter'=> '',
 		        'value' => function($model){
-			        return Html::img(\yii\helpers\Url::to('@image/products/'.$model->image),['width' => '70px','height' => '100px','class'=>'img']);
+			        return Html::img(\yii\helpers\Url::to('@image/products/'.$model->image),['width'=>'60px','class'=>'backend_img']);
 		        }
 	        ] ,
             //'best',

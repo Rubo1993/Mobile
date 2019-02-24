@@ -37,7 +37,7 @@
                     ['label' => 'Brands', 'icon' => 'dashboard', 'url' => ['/brands']],
 	                ['label' => 'Sliders', 'icon' => 'image', 'url' => ['/slider']],
 	                ['label' => 'Orders', 'icon' => 'image', 'url' => ['/order']],
-
+	                ['label' => 'Mail', 'icon' => 'send', 'url' => ['/mail']],
 	                ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',

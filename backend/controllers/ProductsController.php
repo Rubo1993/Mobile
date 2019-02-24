@@ -62,8 +62,12 @@ class ProductsController extends Controller
      */
     public function actionView($id)
     {
+	    $categories = Categories::find()->asArray()->all();
+	    $categories = ArrayHelper::map($categories,'id','title');
         return $this->render('view', [
             'model' => $this->findModel($id),
+	        'categories'=>$categories,
+
         ]);
     }
 
@@ -83,7 +87,9 @@ class ProductsController extends Controller
 	    $brands = ArrayHelper::map($brands,'id','title');
 
 	    if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        	$imgFile=UploadedFile::getInstance($model,'image');
+		    Yii::$app->session->setFlash('success','Ապրանքն ավելացված է');
+
+		    $imgFile=UploadedFile::getInstance($model,'image');
         	if (!empty($imgFile)){
 				$filePath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
 		        $imgaName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
@@ -114,7 +120,6 @@ class ProductsController extends Controller
      */
     public function actionUpdate($id)
     {
-
 	    $categories = Categories::find()->asArray()->all();
 	    $categories = ArrayHelper::map($categories,'id','title');
 	    $brands = Brands::find()->asArray()->all();
@@ -128,15 +133,18 @@ class ProductsController extends Controller
 			    $filePath = Yii::getAlias('@frontend') . '/web/images/uploads/products/';
 			    $imgaName = Yii::$app->security->generateRandomString() . '.' . $imgFile->extension;
 			    $path=$filePath.$imgaName;
+
 			    if ($imgFile->saveAs($path)){
-			    	if (file_exists($old_image)){
+				    if (file_exists($old_image)){
 			    		unset($old_image);
-				    }else{
+				    } else{
 					    $model->image = $imgaName;
 				    $model->save(['image']);
 				    }
-
 			    }
+		    }else{
+			    $model->image = $old_image;
+			    $model->save(['image']);
 		    }
 
 		    return $this->redirect(['view', 'id' => $model->id]);

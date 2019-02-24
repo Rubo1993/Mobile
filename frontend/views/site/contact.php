@@ -1,48 +1,84 @@
+<?php
+
+use yii\helpers\Html;
+use yii\bootstrap\ActiveForm;
+use yii\captcha\Captcha;
+
+
+$this->title = 'Contact';
+$this->params['breadcrumbs'][] = $this->title;
+?>
 <div class="content">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="box">
-                    <div class="box-head">
-                        <h2 class="head-title">
-                            Կապ մեզ հետ</h2>
-                    </div>
-                    <div class="box-body contact-form">
-                        <div class="row">
-                            <form>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <label class="control-label sr-only" for="name"></label>
-                                        <input id="name" type="text" placeholder="ՔՈ ԱՆՈՒՆԸ" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <label class="control-label sr-only" for="phone"></label>
-                                        <input id="phone" type="text" placeholder="ՄՈՒՏՔԱԳՐԵՔ ՁԵՐ ԲՋՋԱՅԻՆ ՀԱՄԱՐԸ" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <label class="control-label sr-only" for="email"></label>
-                                        <input id="email" type="text" placeholder="ՄՈՒՏՔԱԳՐԵՔ Էլ․ ՓՈՍՏԻ ՀԱՍՑԵՆ" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <label class="control-label sr-only" for="name"></label>
-                                        <input id="subject" type="text" placeholder="ՁԵՐ ԹԵՄԱՆ" class="form-control" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div class="form-group">
-                                        <label class="control-label sr-only" for="textarea"></label>
-                                        <textarea class="form-control" id="textarea" name="textarea" rows="4" placeholder="ՀԱՂՈՐԴԱԳՐՈՒԹՅՈՒՆԸ"></textarea>
-                                    </div>
-                                    <button type="submit" name="singlebutton" class="btn btn-primary">ՈՒՂԱՐԿԵԼ</button>
-                                </div>
-                            </form>
+
+<!--                    <div class="box-body contact-form">-->
+<!--                        <div class="row">-->
+<!--                            <form>-->
+<!--                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="control-label sr-only" for="name"></label>-->
+<!--                                        <input id="name" type="text" placeholder="ՔՈ ԱՆՈՒՆԸ" class="form-control" required>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="control-label sr-only" for="phone"></label>-->
+<!--                                        <input id="phone" type="text" placeholder="ՄՈՒՏՔԱԳՐԵՔ ՁԵՐ ԲՋՋԱՅԻՆ ՀԱՄԱՐԸ" class="form-control" required>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="control-label sr-only" for="email"></label>-->
+<!--                                        <input id="email" type="text" placeholder="ՄՈՒՏՔԱԳՐԵՔ Էլ․ ՓՈՍՏԻ ՀԱՍՑԵՆ" class="form-control" required>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="control-label sr-only" for="name"></label>-->
+<!--                                        <input id="subject" type="text" placeholder="ՁԵՐ ԹԵՄԱՆ" class="form-control" required>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--                                    <div class="form-group">-->
+<!--                                        <label class="control-label sr-only" for="textarea"></label>-->
+<!--                                        <textarea class="form-control" id="textarea" name="textarea" rows="4" placeholder="ՀԱՂՈՐԴԱԳՐՈՒԹՅՈՒՆԸ"></textarea>-->
+<!--                                    </div>-->
+<!--                                    <button type="submit" name="singlebutton" class="btn btn-primary">ՈՒՂԱՐԿԵԼ</button>-->
+<!--                                </div>-->
+<!--                            </form>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+
+                    <div class="contact-wrap animated bounceInLeft">
+                        <div class="box-head">
+                            <h2 class="head-title">
+                                Կապ մեզ հետ</h2>
                         </div>
+		                <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
+
+		                <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
+
+		                <?= $form->field($model, 'email') ?>
+
+		                <?= $form->field($model, 'subject') ?>
+
+		                <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+
+		                <?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
+			                'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
+		                ]) ?>
+
+                        <div class="form-group">
+			                <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                        </div>
+
+		                <?php ActiveForm::end(); ?>
+
                     </div>
                 </div>
             </div>

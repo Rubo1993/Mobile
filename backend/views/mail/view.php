@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Brands */
+/* @var $model common\models\Mail */
 
-$this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Brands', 'url' => ['index']];
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Mails', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="brands-view">
+<div class="mail-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,18 +30,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'title',
-            'description:ntext',
-            'image',
-//            'cat_id',
-	        [
-		        'attribute' => 'cat_id',
-		        'filter' => '',
-		        'value' => function($model){
-			        return \common\models\Categories::find()->where(['id' => $model->cat_id])->one()->title;
-		        }
-	        ] ,
-            'slug',
+            'name',
+            'email:email',
+            'content',
+            'date',
         ],
     ]) ?>
 

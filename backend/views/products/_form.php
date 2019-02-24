@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use mihaildev\ckeditor\CKEditor;
 /* @var $this yii\web\View */
 /* @var $model common\models\Products */
 /* @var $form yii\widgets\ActiveForm */
@@ -14,7 +14,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+<!--    --><?//= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+<?php
+//echo $form->field($model,'description')->widget(CKEditor::className(),[
+//        'editorOptions'=>[
+//                'pareset'=>'full',
+//            'inline'=>false,
+//        ]
+//]);
+//?>
+
+
 
     <?= $form->field($model, 'price')->textInput() ?>
 
@@ -26,9 +36,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'available_stock')->textInput() ?>
 
-    <?= $form->field($model, 'is_new')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'is_new')->checkbox([ '0'=>'no', '1'=>'yes', ])?>
 
-    <?= $form->field($model, 'is_sale')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'is_sale')->checkbox([ '0'=>'no', '1'=>'yes', ]) ?>
 
     <?= $form->field($model, 'image')->fileInput(['maxlength' => true]) ?>
 
@@ -40,7 +50,7 @@ use yii\widgets\ActiveForm;
 
 <!--    --><?//= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'best')->dropDownList([ '0', '1', ], ['prompt' => '']) ?>
+    <?= $form->field($model, 'best')->checkbox([ '0'=>"no", '1'=>'yes', ]) ?>
 	<?= $form->field($model, 'reyting')->dropDownList([ '0', '1','2','3','4','5' ], ['prompt' => '']) ?>
 
     <div class="form-group">

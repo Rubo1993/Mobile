@@ -44,12 +44,12 @@ class CartController extends Controller {
 				if ( $myorder->save( false ) ) {
 
 					$this->saveOrederItems( $mycart, $myorder->id );
-//
-//					\Yii::$app->mailer->compose( 'order', [ 'mycart' => $mycart ] )
-//					                  ->setFrom( [ 'arm_phone@mail.ru' => 'Armphone.am' ] )
-//					                  ->setTo( $myorder->email )
-//					                  ->setSubject( 'Phone' )
-//					                  ->send();
+
+					\Yii::$app->mailer->compose( 'order', [ 'mycart' => $mycart ] )
+					                  ->setFrom( [ 'arm.phone2019@mail.ru' => 'Armphone.am' ] )
+					                  ->setTo( $myorder->email )
+					                  ->setSubject( 'Phone' )
+					                  ->send();
 					Yii::$app->session->setFlash( 'success', 'Պատվերն ընդունված է' );
 					foreach ( $get_cart as $carts ) {
 						$delId = $carts['user_id'];
