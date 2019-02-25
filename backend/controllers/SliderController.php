@@ -98,7 +98,7 @@ class SliderController extends Controller {
 	 */
 	public function actionUpdate( $id ) {
 		$model = $this->findModel( $id );
-$old_slider_img=$model->image;
+		$old_slider_img=$model->image;
 		if ( $model->load( Yii::$app->request->post() ) && $model->save() ) {
 			$imgFile = UploadedFile::getInstance( $model, 'image' );
 			if ( ! empty( $imgFile ) ) {
@@ -114,46 +114,49 @@ $old_slider_img=$model->image;
 					}
 
 				}
+			}else{
+				$model->image = $old_slider_img;
+				$model->save( [ 'image' ] );
 			}
 
-			return $this->redirect( [ 'view', 'id' => $model->id ] );
-		}
-
-
-		return $this->render( 'update', [
-			'model' => $model,
-		] );
+		return $this->redirect( [ 'view', 'id' => $model->id ] );
 	}
 
-	/**
-	 * Deletes an existing Slider model.
-	 * If deletion is successful, the browser will be redirected to the 'index' page.
-	 *
-	 * @param integer $id
-	 *
-	 * @return mixed
-	 * @throws NotFoundHttpException if the model cannot be found
-	 */
-	public function actionDelete( $id ) {
-		$this->findModel( $id )->delete();
 
-		return $this->redirect( [ 'index' ] );
+return $this->render( 'update', [
+'model' => $model,
+] );
+}
+
+/**
+ * Deletes an existing Slider model.
+ * If deletion is successful, the browser will be redirected to the 'index' page.
+ *
+ * @param integer $id
+ *
+ * @return mixed
+ * @throws NotFoundHttpException if the model cannot be found
+ */
+public function actionDelete( $id ) {
+	$this->findModel( $id )->delete();
+
+	return $this->redirect( [ 'index' ] );
+}
+
+/**
+ * Finds the Slider model based on its primary key value.
+ * If the model is not found, a 404 HTTP exception will be thrown.
+ *
+ * @param integer $id
+ *
+ * @return Slider the loaded model
+ * @throws NotFoundHttpException if the model cannot be found
+ */
+protected function findModel( $id ) {
+	if ( ( $model = Slider::findOne( $id ) ) !== null ) {
+		return $model;
 	}
 
-	/**
-	 * Finds the Slider model based on its primary key value.
-	 * If the model is not found, a 404 HTTP exception will be thrown.
-	 *
-	 * @param integer $id
-	 *
-	 * @return Slider the loaded model
-	 * @throws NotFoundHttpException if the model cannot be found
-	 */
-	protected function findModel( $id ) {
-		if ( ( $model = Slider::findOne( $id ) ) !== null ) {
-			return $model;
-		}
-
-		throw new NotFoundHttpException( 'The requested page does not exist.' );
-	}
+	throw new NotFoundHttpException( 'The requested page does not exist.' );
+}
 }

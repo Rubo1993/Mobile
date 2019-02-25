@@ -3,16 +3,18 @@
 		<?php foreach ($slider as $slid){?>
             <div class="item">
                 <div class="slider-img">
-                    <img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/slider/'.$slid['image']?>" alt=""></div>
-<!--              timer-->
-<!--                /timer-->
+                    <img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/slider/'.$slid['image']?>" alt="" id="slide_img"></div>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 col-md-8 col-sm-6 col-xs-12">
                             <div class="slider-captions">
                                 <div class="brand-img">
                                 </div>
-                                <a href="#" class="btn btn-primary btn-lg hidden-xs">Buy Now</a>
+<!--                                <div>-->
+<!--                                    <h2 class="slider_description">--><?//=$slid['description']?><!--</h2>-->
+<!---->
+<!--                                </div>-->
+<!--                                <a href="#" class="btn btn-primary btn-lg hidden-xs">Buy Now</a>-->
                             </div>
                         </div>
                     </div>
@@ -28,6 +30,10 @@
 <!-- mobile showcase -->
 <div class="space-medium">
     <div class="container">
+<!--        <form  method="get" action="--><?//= \yii\helpers\Url::to( [ 'product/search' ] )?><!--" class="myform">-->
+<!--            <input type="search" class="searchinput" name="q">-->
+<!--            <input type="submit" value="O" class="fa fa-search">-->
+<!--        </form>-->
 		<?php  \yii\widgets\Pjax::begin(['enablePushState' => false]);?>
         <div class="row product_flex">
 			<?php
@@ -35,7 +41,7 @@
 				foreach ($allProduct as $prodKey=>$product){
 					if ($prodKey==1){
 						?>
-                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 animated bounceInUp">
+                        <div class=" col-lg-6 col-md-6 col-sm-12 col-xs-12 animated bounceInUp">
                             <div class="showcase-block active ">
                                 <div class="display-logo alignleft">
                                     <a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug'] ?>">  <?=$product['title']?>
@@ -123,52 +129,12 @@
 						}
 					}
 					?>
-
-                    <!--                     product-->
-                    <!--                    <div class="item">-->
-                    <!--                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
-                    <!--                            <div class="product-block">-->
-                    <!--                                <div class="product-img"><img src="./images/product_img_6.png" alt=""></div>-->
-                    <!--                                <div class="product-content">-->
-                    <!--                                    <h5><a href="#" class="product-title">Apple iPhone 7 <strong>(256 GB, Black)</strong> </a></h5>-->
-                    <!---->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
-                    <!--                    <div class="item">-->
-                    <!--                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
-                    <!--                            <div class="product-block">-->
-                    <!--                                <div class="product-img"><img src="./images/product_img_7.png" alt=""></div>-->
-                    <!--                                <div class="product-content">-->
-                    <!--                                    <h5><a href="#" class="product-title">Apple iPhone 6S <strong>(32GB, Gold)</strong> </a></h5>-->
-                    <!---->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!-- /.product -->
-                    <!-- product -->
-                    <!--                    <div class="item">-->
-                    <!--                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
-                    <!--                            <div class="product-block">-->
-                    <!--                                <div class="product-img"><img src="./images/product_img_8.png" alt=""></div>-->
-                    <!--                                <div class="product-content">-->
-                    <!--                                    <h5><a href="#" class="product-title">Apple iPhone X <strong>(64 GB, Grey)</strong></a></h5>-->
-                    <!---->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </div>-->
-                    <!-- /.product -->
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
-<!-- /.seller products -->
-<!-- featured products -->
+
 <div class="container">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

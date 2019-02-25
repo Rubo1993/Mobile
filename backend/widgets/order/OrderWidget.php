@@ -3,12 +3,12 @@
 
 namespace backend\widgets\order;
 use Yii;
-use common\models\Orders;
+use common\models\Order;
 
 class OrderWidget extends \yii\bootstrap\Widget {
 
     public function run() {
-        $orders = Orders::find()->count();
+        $orders = Order::find()->count();
         return $orders;
     }
 

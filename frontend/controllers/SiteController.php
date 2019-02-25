@@ -68,32 +68,25 @@ class SiteController extends Controller
             ],
         ];
     }
-
+public function actionTestEmail(){
+	\Yii::$app->mailer->compose( )
+		->setTo( 'sport-199368@mail.ru' )
+	                  ->setFrom( [ 'adminEmail' => 'Armphone.am' ] )
+	                  ->setSubject( 'Phone' )
+	                  ->send();
+}
 
     /**
      * Displays homepage.
      *
      * @return mixed
      */
-//    public function actionIndex()
-//    {
-//    	$allProduct = Products::find()->limit(8)->asArray()->all();
-//	    $allBrands = Brands::find()->asArray()->all();
-//	    $bestProducts = Products::find()->where(['best'=>'1'])->limit(8)->asArray()->all();
-//
-//	    return $this->render('index',[
-//        	'allProduct' => $allProduct,
-//		    'allBrands'=>$allBrands,
-//		    'bestProducts'=>$bestProducts,
-//
-//        ]);
-//    }
 	public function actionIndex()
 	{
 		$allProduct = Products::find()->orderBy(['title'=>4]);
 		$allBrands = Brands::find()->asArray()->all();
 		$bestProducts = Products::find()->where(['best'=>'1'])->limit(8)->asArray()->all();
-		$pagination= new Pagination(['totalCount'=>$allProduct->count(),'pageSize'=>6]);
+		$pagination= new Pagination(['totalCount'=>$allProduct->count(),'pageSize'=>7]);
 
 		$slider=Slider::find()->asArray()->all();
 

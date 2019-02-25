@@ -51,13 +51,13 @@ class ContactForm extends Model
      */
     public function sendEmail($email)
     {
-	    $model = new Mail();
+    	$model = new Mail();
 	    $model->content = $this->body;
-	    $model->email = $this->email;
+	    $model->email = $email;
 	    $model->save(false);
         return Yii::$app->mailer->compose()
-            ->setTo($email)
-	        ->setFrom(['arm.phone2019@mail.ru' => $this->email])
+            ->setTo('arm.phone2019@mail.ru')
+	        ->setFrom([$email => $email])
             ->setSubject($this->subject)
             ->setTextBody($this->body)
             ->send();

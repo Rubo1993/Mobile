@@ -23,92 +23,26 @@ use yii\helpers\Html;
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
-                        <span class="label label-success">4</span>
+                        <span class="label label-success"><?= \backend\widgets\email\EmailWidget::widget(['count' => 'count']);?></span>
                     </a>
                     <ul class="dropdown-menu">
-
-
-                            <!-- inner menu: contains the actual data -->
+                        <li>Հաղորդագրություններ</li>
                             <ul class="menu">
 	                            <?= \backend\widgets\email\EmailWidget::widget();?>
-<!--                                <li><!-- start message -->
-<!--                                    <a href="#">-->
-<!--                                        <div class="pull-left">-->
-<!--                                            <img src="--><?//= $directoryAsset ?><!--/img/adminLog.jpg" class="img-circle"-->
-<!--                                                 alt="User Image"/>-->
-<!--                                        </div>-->
-<!--                                        <h4>-->
-<!--                                            Support Team-->
-<!--                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>-->
-<!--                                        </h4>-->
-<!--                                        <p>Why not buy a new awesome theme?</p>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-                                <!-- end message -->
-<!--                                <li>-->
-<!--                                    <a href="#">-->
-<!--                                        <div class="pull-left">-->
-<!--                                            <img src="--><?//= $directoryAsset ?><!--/img/user3-128x128.jpg" class="img-circle"-->
-<!--                                                 alt="user image"/>-->
-<!--                                        </div>-->
-<!--                                        <h4>-->
-<!--                                            AdminLTE Design Team-->
-<!--                                            <small><i class="fa fa-clock-o"></i> 2 hours</small>-->
-<!--                                        </h4>-->
-<!--                                        <p>Why not buy a new awesome theme?</p>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <a href="#">-->
-<!--                                        <div class="pull-left">-->
-<!--                                            <img src="--><?//= $directoryAsset ?><!--/img/user4-128x128.jpg" class="img-circle"-->
-<!--                                                 alt="user image"/>-->
-<!--                                        </div>-->
-<!--                                        <h4>-->
-<!--                                            Developers-->
-<!--                                            <small><i class="fa fa-clock-o"></i> Today</small>-->
-<!--                                        </h4>-->
-<!--                                        <p>Why not buy a new awesome theme?</p>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <a href="#">-->
-<!--                                        <div class="pull-left">-->
-<!--                                            <img src="--><?//= $directoryAsset ?><!--/img/user3-128x128.jpg" class="img-circle"-->
-<!--                                                 alt="user image"/>-->
-<!--                                        </div>-->
-<!--                                        <h4>-->
-<!--                                            Sales Department-->
-<!--                                            <small><i class="fa fa-clock-o"></i> Yesterday</small>-->
-<!--                                        </h4>-->
-<!--                                        <p>Why not buy a new awesome theme?</p>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <a href="#">-->
-<!--                                        <div class="pull-left">-->
-<!--                                            <img src="--><?//= $directoryAsset ?><!--/img/user4-128x128.jpg" class="img-circle"-->
-<!--                                                 alt="user image"/>-->
-<!--                                        </div>-->
-<!--                                        <h4>-->
-<!--                                            Reviewers-->
-<!--                                            <small><i class="fa fa-clock-o"></i> 2 days</small>-->
-<!--                                        </h4>-->
-<!--                                        <p>Why not buy a new awesome theme?</p>-->
-<!--                                    </a>-->
-<!--                                </li>-->
                             </ul>
                         </li>
-                        <li class="footer"><a href="#">See All Messages</a></li>
+                        <li class="footer"><a href="<?=\yii\helpers\Url::to(['/mail']) ?>">See All Messages</a></li>
                     </ul>
                 </li>
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell-o"></i>
-                        <span class="label label-warning">10</span>
+                        <span class="label label-warning"><?=\backend\widgets\order\OrderWidget::widget()?></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">You have 10 notifications</li>
+                        <li class="header">
+                            Պատվերների քանակ
+                        </li>
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">
@@ -148,10 +82,12 @@ use yii\helpers\Html;
                 <li class="dropdown tasks-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-flag-o"></i>
-                        <span class="label label-danger">9</span>
+                        <span class="label label-danger">
+                            <?php \backend\widgets\users\UsersWidget::widget()?>
+                        </span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">You have 9 tasks</li>
+                        <li class="header">Օգտատերեր</li>
                         <li>
                             <!-- inner menu: contains the actual data -->
                             <ul class="menu">

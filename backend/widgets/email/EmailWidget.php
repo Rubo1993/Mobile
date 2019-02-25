@@ -18,9 +18,9 @@ class EmailWidget extends  \yii\bootstrap\Widget
             return count($count);
         }
 
-        $messages = Mail::find()->asArray()->all();
+        $content = Mail::find()->asArray()->all();
         return $this->render('messages',[
-            'messages' => $messages,
+            'content' => $content,
         ]);
 
     }

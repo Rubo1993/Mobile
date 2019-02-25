@@ -34,7 +34,7 @@ AppAsset::register( $this );
             <!-- logo -->
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8">
                 <div class="logo" id="mylogo">
-                    <a href="index.html"><img  src="./images/logo.png" alt=""> </a>
+                    <a href="index.html"><img  src="../images/logo.png" alt=""> </a>
                 </div>
             </div>
             <!-- /.logo -->

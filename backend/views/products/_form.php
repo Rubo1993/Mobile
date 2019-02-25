@@ -52,6 +52,7 @@ use mihaildev\ckeditor\CKEditor;
 
     <?= $form->field($model, 'best')->checkbox([ '0'=>"no", '1'=>'yes', ]) ?>
 	<?= $form->field($model, 'reyting')->dropDownList([ '0', '1','2','3','4','5' ], ['prompt' => '']) ?>
+	<?= $form->field($model, 'description')->textarea(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

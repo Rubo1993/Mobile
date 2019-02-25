@@ -11,6 +11,7 @@ use common\models\Categories;
 use common\models\Slider;
 use yii\web\controller;
 use common\models\Products;
+
 use yii\web\NotFoundHttpException;
 
 class ProductController extends controller {
@@ -48,4 +49,10 @@ class ProductController extends controller {
 			'products' => $products,
 		] );
 	}
+//	public function actionSearch(){
+//		$q=Yii::$app->request->get('q');
+//		$query=Products::find()->where(['like','title',$q]);
+//		return $this->render('search',compact('products','pages','q'));
+//	}
+
 }

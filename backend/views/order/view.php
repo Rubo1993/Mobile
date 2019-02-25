@@ -58,20 +58,20 @@ $items = Orderitems::find()->where(['order_id' => $model->id])->asArray()->all()
     <div class="table-responsive">
         <div class="cart">
 
-            <table class="table table-bordered ">
+            <table class="table table-bordered " style="border: 1px solid black;">
                 <thead>
                 <tr>
-                    <th>
+                    <th style="border: 1px solid black ;">
                         <span>Ապրանք</span></th>
-                    <th>
+                    <th style="border: 1px solid black ;">
                         <span>Քանակ</span></th>
-                    <th>
+                    <th style="border: 1px solid black ;">
                         <span>Գին</span></th>
 
-                    <th>
-                        <span>Ընդհանուր</span></th>
-                    <th>
-                        Ընդհանուր արժեք
+<!--                    <th>-->
+<!--                        <span>Ընդհանուր</span></th>-->
+<!--                    <th>-->
+<!--                        Ընդհանուր արժեք-->
                     </th>
                 </tr>
                 </thead>

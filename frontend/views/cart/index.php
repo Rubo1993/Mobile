@@ -72,8 +72,10 @@ use yii\widgets\ActiveForm;
 			<td>
 				<div class="product-quantity">
 					<div class="quantity">
-                        <input type="number" class="input-text qty text" step="1" min="1" max="<?= $cart['product']['available_stock'] ?>" name="quantity" value="<?= $cart['quantity'] ?>" title="Qty" size="4" pattern="[0-9]*">
-					</div>
+                        <form method="get" action="<?= \yii\helpers\Url::to( [ '/' ] ) . 'cart/add' ?>">
+                            <input type="number" readonly class="input-text qty text" step="1" min="1" max="<?= $cart['product']['available_stock'] ?>" name="quantity" value="<?= $cart['quantity'] ?>" title="Qty" size="4" pattern="[0-9]*">
+                        </form>
+                    </div>
 				</div>
 			</td>
 			<td>
@@ -96,13 +98,6 @@ use yii\widgets\ActiveForm;
                                     <?php if (!empty($get_cart)){
                                         ?>
                                         <input type="submit" name="submit" value="Հեռացնել բոլորը">
-                                    <?php
-                                    }else{
-                                        ?>
-                                        <h1 class="red_empyt animated bounceInRight zoomIn">Զամբյուղը դատարկ է</h1>
-                                            <?php
-                                    }
-                                    ?>
 
                                 </form>
 							</div>
@@ -131,9 +126,45 @@ use yii\widgets\ActiveForm;
 						<?= $form->field( $myorder, 'address' )->textInput() ?>
 						<?= Html::submitButton( 'Պատվիրել', [ 'class' => 'btn btn-success' ] ) ?>
 						<?php $form = ActiveForm::end() ?>
+
                     </div>
+                    <div class="peypal">
+                        <form id="paypal_checkout" action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+                            <input name="cmd" value="_cart" type="hidden">
+                            <input name="upload" value="1" type="hidden">
+                            <input name="no_note" value="tyty" type="hidden">
+                            <input name="bn" value="PP-BuyNowBF" type="hidden">
+                            <input name="tax" value="0" type="hidden">
+                            <input name="rm" value="2" type="hidden">
 
+                            <input name="business" value="jeremy@jdmweb.com" type="hidden">
+                            <input name="handling_cart" value="1" type="hidden">
+                            <input name="currency_code" value="USD" type="hidden">
+                            <input name="lc" value="GB" type="hidden">
+                            <input name="return" value="<?= \yii\helpers\Url::to(['/']) . '/cart/' ?>" type="hidden">
+                            <input name="cbt" value="<?= \yii\helpers\Url::to(['/']) . '/site/' ?>" type="hidden">
+                            <input name="cancel_return" value="<?= \yii\helpers\Url::to(['/']) . '/cart/' ?>" type="hidden">
+                            <input name="custom" value="" type="hidden">
 
+			                <?php
+			                if (!empty($get_cart)) {
+				                foreach ($get_cart as $c) {
+//
+					                ?>
+                                    <div id="item_1" class="itemwrap">
+                                        <input name="item_name_1" value="Product name" type="hidden">
+                                        <input name="quantity_1" value="<?= $c['quantity'] ?>" type="hidden">
+                                        <input name="amount_1" value="30" type="hidden">
+                                        <input name="shipping_1" value="0" type="hidden">
+                                    </div>
+					                <?php
+				                }
+			                }
+			                ?>
+
+                            <input id="ppcheckoutbtn" value="PeyNow" class="button" type="submit">
+                        </form>
+                    </div>
                 </div>
 				<a href="<?=\yii\helpers\Url::to(['/']) .'product'?>" class="btn-link"><i class="fa fa-angle-left"></i>Վերադարձ դեպի գնումներ</a>
 			</div>
@@ -173,6 +204,7 @@ use yii\widgets\ActiveForm;
 							</div>
 							<a href="#checkouts" class="btn btn-primary btn-block">Պատվիրել</a>
 						</div>
+
 					</div>
 				</div>
 
@@ -196,12 +228,21 @@ use yii\widgets\ActiveForm;
 				<!-- /.coupon-section -->
 			</div>
 		</div>
+<!--        Peypal-->
+
+<!--       /peypal -->
+
         <?php
         }?>
 		<!-- /.cart-total -->
-
 	</div>
+<?php
+}else{
+	?>
+    <h1 class="red_empyt animated bounceInRight zoomIn">Զամբյուղը դատարկ է</h1>
+	<?php
+}
+?>
 </div>
-
 <hr/>
 

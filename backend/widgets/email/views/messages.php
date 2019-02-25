@@ -1,45 +1,22 @@
-<!--<ul class="dropdown-menu">-->
-<!--    <li class="header">You have 4 messages</li>-->
-<!--    <li>-->
-<!--        <ul class="menu">-->
-<!--            <li>-->
-<!--                <a href="#">-->
-<!--                    <div class="pull-left">-->
-<!--                        <img src="" class="img-circle"-->
-<!--                             alt="User Image"/>-->
-<!--                    </div>-->
-<!--                    <h4>-->
-<!--                        Support Team-->
-<!--                        <small><i class="fa fa-clock-o"></i> 5 mins</small>-->
-<!--                    </h4>-->
-<!--                    <p>Why not buy a new awesome theme?</p>-->
-<!--                </a>-->
-<!--            </li>-->
-<!---->
-<!---->
-<!--        </ul>-->
-<!--    </li>-->
-<!--    <li class="footer"><a href="#">See All Messages</a></li>-->
-<!--</ul>-->
-
 <ul class="dropdown-menu">
-    <li class="header">You have <?= count($messages)?> messages</li>
+    <li class="header">You have <?= count($content)?> messages</li>
     <li>
-        <!-- inner menu: contains the actual data -->
+
         <ul class="menu">
-            <?php if (!empty($messages)){
-                foreach ($messages as $message) {
+            <?php if (!empty($content)){
+                foreach ($content as $cont) {
                     ?>
                     <li><!-- start message -->
                         <a href="#">
                             <div class="pull-left">
-                                <?= $message['name']?>
+                                <?= $cont['name']?>
                             </div>
-                            <h4>
-                                <?= $message['content']?>
-                                <small><i class="fa fa-clock-o"></i> <?= $message['date']?></small>
-                            </h4>
-                            <p><?= $message['email'] ?></p>
+                            <h2>
+                                barev
+                                <?= $cont['content']?>
+                                <small><i class="fa fa-clock-o"></i> <?= $cont['date']?></small>
+                            </h2>
+                            <p><?= $cont['email'] ?></p>
                         </a>
                     </li>
                     <?php

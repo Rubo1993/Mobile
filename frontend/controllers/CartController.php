@@ -18,6 +18,7 @@ class CartController extends Controller {
 
 			$get_cart = Cart::find()->with( 'product' )->where( [ 'user_id' => $user ] )->asArray()->all();
 
+
 //			Products::updateAll( [
 //				'quantity' => new \yii\db\Expression( '@a := @a - 1' ),
 //			], [ [ 'in', 'id', [1, 5] ] ] );

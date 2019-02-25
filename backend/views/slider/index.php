@@ -26,10 +26,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+//            'id',
             'description',
-            'image',
 
+	        [
+		        'attribute' => 'image',
+		        'format' => 'raw',
+		        'filter'=> '',
+		        'value' => function($model){
+			        return Html::img(\yii\helpers\Url::to('@image/slider/'.$model->image),['width'=>'300px','height'=>'200px','object-fit'=>'cover']);
+		        }
+	        ] ,
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
