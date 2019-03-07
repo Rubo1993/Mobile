@@ -11,9 +11,7 @@ use common\models\Categories;
 use common\models\Slider;
 use yii\web\controller;
 use common\models\Products;
-
 use yii\web\NotFoundHttpException;
-
 class ProductController extends controller {
 	public function actionIndex( $slug = '', $brand = "" ) {
 		$category = Categories::find()->asArray()->all();
@@ -34,6 +32,15 @@ class ProductController extends controller {
 				$products = $products->andWhere( [ 'brand_id' => $current_brand->id ] );
 			}
 		}
+
+		if (!empty($slug)){
+			$brand=Brands::findOne(['slug'=>$slug]);
+			if (!empty($brand)){
+				$id=$brand->id;
+				$products=Products::find()->where(['brand_id'=>$id]);
+
+			}
+		}
 		$products = $products->asArray()->all();
 		return $this->render( 'index', [
 			'category' => $category,
@@ -43,7 +50,6 @@ class ProductController extends controller {
 		] );
 	}
 	public function actionSingle( $slug = '' ) {
-
 		$products = Products::findOne( [ 'slug' => $slug ] );
 		return $this->render( 'single', [
 			'products' => $products,
@@ -54,5 +60,4 @@ class ProductController extends controller {
 //		$query=Products::find()->where(['like','title',$q]);
 //		return $this->render('search',compact('products','pages','q'));
 //	}
-
 }

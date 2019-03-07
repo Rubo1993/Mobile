@@ -91,6 +91,7 @@ class CartController extends Controller {
 		$id      = \Yii::$app->request->get( 'add_product' );
 		$product = Products::findOne( $id );
 		$qty     = \Yii::$app->request->get( 'quantity' );
+
 		if ( ! empty( $id ) && ! empty( $qty ) ) {
 			$user        = Yii::$app->user->id;
 			$cartProduct = Products::findOne( $id );

@@ -16,12 +16,12 @@ class EmailWidget extends  \yii\bootstrap\Widget
         if($this->count == 'count'){
             $count = Mail::find()->all();
             return count($count);
-        }
+        }else{
+	    $content = Mail::find()->asArray()->all();
 
-        $content = Mail::find()->asArray()->all();
         return $this->render('messages',[
             'content' => $content,
         ]);
-
+        }
     }
 }

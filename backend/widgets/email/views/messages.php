@@ -1,29 +1,35 @@
 <ul class="dropdown-menu">
-    <li class="header">You have <?= count($content)?> messages</li>
+    <li style="font-weight: bold" class="header">You have <?= count($content)?> messages</li>
     <li>
-
         <ul class="menu">
-            <?php if (!empty($content)){
-                foreach ($content as $cont) {
-                    ?>
-                    <li><!-- start message -->
-                        <a href="#">
+			<?php if (!empty($content)){
+				foreach ($content as $cont) {
+					?>
+                    <li>
+                        <a href="<?= \yii\helpers\Url::to(["/mail/view?id=" . $cont['id']])?>">
                             <div class="pull-left">
-                                <?= $cont['name']?>
+                                <?php
+                                if (!empty($cont['name'])){
+	                              echo  strtoupper($cont['name'])."&#8195;";
+                                }else{
+                                    echo strtoupper("Incognito")."&#8195;";
+                                }
+
+                                ?>
+
                             </div>
-                            <h2>
-                                barev
-                                <?= $cont['content']?>
+
+                            <h4> <?= substr($cont['content'],0,10).'....';?>
                                 <small><i class="fa fa-clock-o"></i> <?= $cont['date']?></small>
-                            </h2>
+                            </h4>
                             <p><?= $cont['email'] ?></p>
                         </a>
                     </li>
-                    <?php
-                }
-            }  ?>
-            <!-- end message -->
+        </br>
+					<?php
+				}
+			}  ?>
         </ul>
     </li>
-    <li class="footer"><a href="/contacts/contact">See All Messages</a></li>
+    <li  class="footer"><a style="font-weight: bold" href="<?= \yii\helpers\Url::to(['/mail'])?>">See All Messages</a></li>
 </ul>

@@ -68,6 +68,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb30">
                                 <div class="product-block animated bounceInDown">
                                     <div class="product-img productMyClass ">
+
                                         <a href="<?=\yii\helpers\Url::to(['/']) . 'product/single/'.$product['slug']?>">
                                         <img src="<?= \yii\helpers\Url::to( [ '/' ] ) . 'images/uploads/products/' . $product['image'] ?>" alt="">
                                             <a/>

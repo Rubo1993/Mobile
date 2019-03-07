@@ -162,7 +162,7 @@ use yii\widgets\ActiveForm;
 			                }
 			                ?>
 
-                            <input id="ppcheckoutbtn" value="PeyNow" class="button" type="submit">
+                            <input id="ppcheckoutbtn" value="Pey Now" class="button" type="submit">
                         </form>
                     </div>
                 </div>

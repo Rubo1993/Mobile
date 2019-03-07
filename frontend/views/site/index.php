@@ -113,7 +113,7 @@
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="product-block">
                                         <div class="brand_image">
-                                            <a href="<?=\yii\helpers\Url::to(['/']) . 'product/index/'.$brands['slug']?>">
+                                            <a href="<?=\yii\helpers\Url::to(['/']) . 'product/'.$brands['slug']?>">
                                                 <img src="<?=\yii\helpers\Url::to(['/']) . 'images/uploads/brands/'.$brands['image']?>" alt="">
                                             </a>
                                         </div>
